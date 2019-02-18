@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Baptiste Pesquet</title>
+    <link>https://www.bpesquet.fr/page/</link>
+    <description>Recent content in Pages on Baptiste Pesquet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 04 Oct 2018 19:02:15 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.bpesquet.fr/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Work With Me</title>
+      <link>https://www.bpesquet.fr/page/work-with-me/</link>
+      <pubDate>Thu, 04 Oct 2018 19:02:15 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/page/work-with-me/</guid>
+      <description>Real-world projects are great opportunities to apply one&amp;rsquo;s skills and learn something valuable along the way. For this reason, I like to collaborate with external partners whenever possible. These collaborations can take two forms.
+Academic partnerships Academic partnerships will involve one or more of my students. They can either be internships (from one to six months) or group projects (from a few weeks to a whole year!). In these partnerships, I usually play the role of a supervisor.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Réalité virtuelle on Baptiste Pesquet</title>
+    <link>https://www.bpesquet.fr/slides/realite-virtuelle/</link>
+    <description>Recent content in Réalité virtuelle on Baptiste Pesquet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 04 Oct 2018 09:48:50 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.bpesquet.fr/slides/realite-virtuelle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction à Unity</title>
+      <link>https://www.bpesquet.fr/slides/realite-virtuelle/intro-unity/</link>
+      <pubDate>Sat, 25 Aug 2018 16:13:52 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/slides/realite-virtuelle/intro-unity/</guid>
+      <description>Sommaire  Unity en bref Concepts-clés Versionnage d&amp;rsquo;un projet  Unity en bref  Moteur de jeu développé par Unity Technologies depuis 2004. Multiplateformes : PC, Mac, consoles, smartphones, web. Licence personnelle gratuite.  Made with Unity   Concepts-clés Project  Rassemble tous les éléments constituant le jeu. Peut être de type 2D ou 3D. Correspond physiquement à un répertoire stocké localement ou dans le cloud.  Asset  Ressource utilisable dans un projet.</description>
+    </item>
+    
+  </channel>
+</rss>

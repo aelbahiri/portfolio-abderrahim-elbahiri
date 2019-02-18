@@ -1,0 +1,484 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction à React Native</title>
+
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/theme/white.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/lib/css/zenburn.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/css/reveal.css">
+
+	
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/pdf.css' : 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+    <h1>Introduction à React Native</h1>
+
+    <p><a href="https://ensc.bordeaux-inp.fr">Ecole Nationale Supérieure de Cognitique</a></p>
+
+    <p><a href="https://www.bpesquet.fr">Baptiste Pesquet</a></p>
+
+    
+    
+    <a href="https://github.com/ensc-mobi/RandomBeer"><img src="https://www.bpesquet.fr/images/GitHub-Mark-64px.png" alt="GitHub logo"></a>
+    
+    
+</section>
+
+			<section>
+
+<h2 id="sommaire">Sommaire</h2>
+
+<ul>
+<li>L&rsquo;écosystème mobile</li>
+<li>Le JavaScript moderne</li>
+<li>Premiers pas avec React Native</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="l-écosystème-mobile">L&rsquo;écosystème mobile</h2>
+
+</section>
+				<section>
+
+<section><p><img src="images/smartphone_market_share_2016.jpg" alt="Smartphone platform market share" /></p>
+
+</section>
+				<section>
+
+<p><img src="images/mobile_os_fragmentation_2016.jpg" alt="Mobile OS Fragmentation" /></p>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="développement-natif">Développement natif</h2>
+
+<p>Création d&rsquo;applications en utilisant la technologie prévue par le concepteur de l&rsquo;OS.</p>
+
+<ul>
+<li>Android : Java</li>
+<li>IOS : Objective-C ou Swift</li>
+</ul>
+
+<p class='fragment '
+  >
+  Ces technologies sont <strong>incompatibles</strong>.
+</p>
+
+</section>
+				<section>
+
+<h2 id="avantages">Avantages</h2>
+
+<ul>
+<li>Accès à l&rsquo;intégralité des fonctionnalités matérielles et logicielles du terminal mobile.</li>
+<li>Performances optimales.</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="inconvénient-majeur">Inconvénient (majeur !)</h2>
+
+<p>Nécessité de créer puis de faire évoluer une application pour chaque environnement.</p>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="solutions-hybrides">Solutions hybrides</h2>
+
+<p>Création d&rsquo;applications mobiles compatibles avec plusieurs OS mobiles grâce à un framework dédié.</p>
+
+<p>Une application hybride est une application web qui s&rsquo;exécute à l&rsquo;intérieur d&rsquo;un navigateur.</p>
+
+<p>Exemples : <a href="https://cordova.apache.org">Apache Cordova</a>, <a href="https://ionicframework.com">Ionic</a></p>
+
+</section>
+				<section>
+
+<h2 id="avantages">Avantages</h2>
+
+<ul>
+<li>Fonctionnalités et performances proches de celles d&rsquo;une application native.</li>
+<li>Economies de ressources pour créer l&rsquo;application.</li>
+<li>Une seule base de code : maintenance et évolution facilitées.</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="inconvénients">Inconvénients</h2>
+
+<ul>
+<li>Impossible d&rsquo;accéder à certaines fonctionnalités matérielles ou logicielles spécifiques.</li>
+<li><em>Look&rsquo;n&rsquo;feel</em> non natif.</li>
+<li>Mauvaises performances dans certains scenarii.</li>
+</ul>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="développement-natif-multi-plateformes">Développement natif multi-plateformes</h2>
+
+<p>Création d&rsquo;applications mobiles compatibles avec plusieurs OS mobiles grâce à un framework dédié.</p>
+
+<p>Le framework encapsule les véritables composants natifs de l&rsquo;OS.</p>
+
+<p>Exemples : <a href="https://facebook.github.io/react-native/">React Native</a>, <a href="https://weex.apache.org/">Weex</a>, <a href="https://www.visualstudio.com/fr/xamarin/">Xamarin</a></p>
+
+</section>
+				<section>
+
+<h2 id="le-meilleur-des-deux-mondes">Le meilleur des deux mondes ?</h2>
+
+<p>Combine les avantages du natif (<em>look&rsquo;n&rsquo;feel</em>, performances) et de l&rsquo;hybride (une seule base de code).</p>
+
+<p>Limite potentielle : le support de l&rsquo;OS dépend entièrement du framework.</p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="le-javascript-moderne">Le JavaScript moderne</h2>
+
+</section>
+				<section>
+
+<h2 id="un-pré-requis-essentiel">Un pré-requis essentiel</h2>
+
+<p>La majorité des solutions mobiles multi-plateformes est basée sur JavaScript.</p>
+
+<p><img src="images/mobile_logos.png" alt="Frameworks multi-plateformes" /></p>
+
+</section>
+				<section>
+
+<section><h2 id="les-évolutions-du-langage">Les évolutions du langage</h2>
+
+<p>JavaScript est normalisé sous le nom <strong>ECMAScript</strong>.</p>
+
+<p><img src="images/js_history.png" alt="ECMAScript releases" /></p>
+
+<p>La norme <strong>ES2015</strong> (ou ES6) a apporté de très nombreuses améliorations au langage.</p>
+
+</section>
+				<section>
+
+<h2 id="let-et-const">Let et const</h2>
+
+<p>Les mots-clés <code>let</code> et <code>const</code> remplacent avantageusement <code>var</code> pour la déclaration des variables.</p>
+
+<p>La valeur d&rsquo;une variable déclarée avec <code>const</code> ne peut plus être modifiée.</p>
+
+<pre><code class="language-js">let a = 3.14;
+a = 6.28; // OK
+
+const b = 3.14;
+b = 6.28; // Erreur!
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="litéraux-de-modèle">Litéraux de modèle</h2>
+
+<p>Chaînes de caractères créées entre <em>backticks</em> et permettant d&rsquo;intégrer des expressions.</p>
+
+<pre><code class="language-js">const country = &quot;France&quot;;
+console.log(`I live in ${country}`); // &quot;I live in France&quot;
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="fonctions-fléchées">Fonctions fléchées</h2>
+
+<p>Nouvelle syntaxe pour créer des fonctions anonymes.</p>
+
+<pre><code class="language-js">// Syntaxe classique
+const hello = function(name) {
+  const message = `Hello, ${name}!`;
+  return message;
+};
+
+// Utilisation d'une fonction fléchée
+const hello = name =&gt; {
+  const message = `Hello, ${name}!`;
+  return message;
+};
+
+console.log(hello(&quot;Richard&quot;)); // &quot;Bonjour, Richard!&quot;
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="classes">Classes</h2>
+
+<pre><code class="language-js">class Character {
+  constructor(name, health, strength) {
+    this.name = name;
+    this.health = health;
+    this.strength = strength;
+  }
+  describe() {
+    return `${this.name} has ${this.health} health points
+      and ${this.strength} as strength`;
+  }
+}
+
+const aurora = new Character(&quot;Aurora&quot;, 150, 25);
+console.log(aurora.describe());
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="appels-asynchrones">Appels asynchrones</h2>
+
+<p>Une <strong>promesse</strong> (<em>promise</em>) est un objet qui encapsule une opération dont le résultat n&rsquo;est pas encore connu.</p>
+
+<pre><code class="language-js">// Envoie une requête HTTP asynchrone vers l'URL spécifiée
+fetch(url)
+  .then(() =&gt; {
+    // Code appelé ultérieurement si la requête réussit
+  })
+  .catch(() =&gt; {
+    // Code appelé ultérieurement si la requête échoue
+  });
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="consommation-d-api-web">Consommation d&rsquo;API web</h2>
+
+<pre><code class="language-js">// Envoi d'une requête HTTP asynchrone vers l'URL spécifiée
+// La réponse est reçue sous forme de données JSON
+fetch(&quot;http://my-api-url&quot;)
+  .then(response =&gt; response.json()) // JSON vers JavaScript
+  .then(content =&gt; {
+    // Utilisation de la réponse
+    // ...
+  })
+  .catch(err =&gt; {
+    console.error(err.message);
+  });
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="modules-et-imports">Modules et imports</h2>
+
+<p>JavaScript supporte la notion de <strong>module</strong> pour factoriser des éléments réutilisables.</p>
+
+<pre><code class="language-js">// Importe l'élément exporté par défaut par le module
+import React from &quot;react-native&quot;;
+
+// Importe d'autres éléments exportés grâce à leur nom
+import { View, Text, Image } from &quot;react-native&quot;;
+
+// Importe à la fois l'élément par défaut et d'autres éléments
+import React, { View, Text, Image } from &quot;react-native&quot;;
+</code></pre>
+</section>
+
+</section>
+				<section>
+
+<h2 id="les-outils">Les outils</h2>
+
+<ul>
+<li>Gestion des dépendances : <a href="https://www.npmjs.com/">npm</a> (ou <a href="https://yarnpkg.com/lang/en/">yarn</a>).</li>
+<li>Edition du code : <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</li>
+<li>Formatage du code : <a href="https://github.com/prettier/prettier">Prettier</a>.</li>
+<li>Analyse du code : <a href="https://eslint.org/">ESLint</a>.</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="premiers-pas-avec-react-native">Premiers pas avec React Native</h2>
+
+</section>
+				<section>
+
+<h2 id="react-native">React Native</h2>
+
+<p>Framework créé par Facebook, open source depuis 2015.</p>
+
+<p>Déclinaison mobile du framework JavaScript <a href="https://reactjs.org/">React</a>.</p>
+
+<p><img src="images/reactjs.png" alt="React logo" /></p>
+
+</section>
+				<section>
+
+<p><section><h2 id="création-d-une-application">Création d&rsquo;une application</h2>
+
+<p>Utilisation de l&rsquo;outil <a href="https://github.com/expo/expo-cli">Expo CLI</a> associé à l&rsquo;application mobile <a href="https://expo.io">Expo</a> pour le déploiement sur mobile.</p>
+
+<pre><code class="language-bash"># Avec npm
+npm install -g expo-cli
+expo init MyApp
+</code></pre>
+
+<p>Expo CLI a remplacé l&rsquo;outil Create React Native App (CRNA) en septembre 2018 <a href="https://github.com/react-community/create-react-native-app/blob/master/CHANGELOG.md#201-september-21-2018">(détails)</a>.</p>
+
+</section>
+				<section>
+
+<h2 id="contenu-du-répertoire-créé">Contenu du répertoire créé</h2>
+
+<p><img src="images/rn_app_structure.png" alt="Arborescence React Native" /></p>
+
+</section>
+				<section>
+
+<h2 id="le-fichier-principal-app-js">Le fichier principal : App.js</h2>
+
+<pre><code class="language-jsx">import React from &quot;react&quot;;
+import { StyleSheet, Text, View } from &quot;react-native&quot;;
+
+export default class App extends React.Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text&gt;Open up App.js to start working on your app!&lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: &quot;#fff&quot;,
+    alignItems: &quot;center&quot;,
+    justifyContent: &quot;center&quot;
+  }
+});
+</code></pre>
+</section></p>
+
+</section>
+				<section>
+
+<section><h2 id="déploiement-d-une-application">Déploiement d&rsquo;une application</h2>
+
+<pre><code class="language-bash">cd MyApp
+npm start
+</code></pre>
+
+<p>Ensuite, scan du QR Code depuis l&rsquo;application Expo (Android) ou l&rsquo;appareil photo du smartphone (iOS).</p>
+
+<p><img src="images/expo_qrcode.png" alt="Expo QR Code" /></p>
+
+</section>
+				<section>
+
+<h2 id="détails-sur-le-déploiement">Détails sur le déploiement</h2>
+
+<ul>
+<li>L&rsquo;application est hébergée sur un serveur web local.</li>
+<li>Expo s&rsquo;y connecte pour la récupérer puis la lancer.</li>
+<li>Une interface de gestion s&rsquo;affiche dans le navigateur web local.</li>
+</ul>
+
+<p><img src="images/expo_management.png" alt="Expo Management" /></p>
+
+</section>
+				<section>
+
+<h2 id="live-reload">Live Reload</h2>
+
+<figure>
+    
+        <img src="images/expo_reload.jpeg" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://openclassrooms.com/fr/courses/4902061-developpez-une-application-mobile-react-native/"> 
+            Extrait du cours OpenClassrooms sur React Native
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+</section>
+
+</section>
+				<section>
+
+<h2 id="exemple-d-application">Exemple d&rsquo;application</h2>
+
+<p><a href="https://github.com/ensc-mobi/RandomBeer">https://github.com/ensc-mobi/RandomBeer</a>
+<img src="images/random_beer.png" alt="Random Beer app" /></p>
+</section>
+				</div>
+	</div>
+	<div>
+		<a href="https://ensc.bordeaux-inp.fr">
+			<img src="https://www.bpesquet.fr/images/ENSC.jpg" style="position: absolute;
+						bottom: 10px;
+						left: 10px;" />
+		</a>
+	</div>
+
+	<script src="https://www.bpesquet.fr/reveal.js/lib/js/head.min.js"></script>
+	<script src="https://www.bpesquet.fr/reveal.js/js/reveal.js"></script>
+
+	<script>
+		
+		
+		
+		Reveal.initialize({
+			
+			history: false,
+			
+			slideNumber: true,
+			
+			transition: "convex",
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-MML-AM_HTMLorMML'  
+			},
+			dependencies: [
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/marked.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/markdown.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/notes\/notes.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/zoom-js\/zoom.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/highlight\/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/math\/math.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>

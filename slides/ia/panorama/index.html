@@ -1,0 +1,612 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Panorama de l&#39;IA</title>
+
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/theme/white.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/lib/css/zenburn.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/css/reveal.css">
+
+	
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/pdf.css' : 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+    <h1>Panorama de l&#39;IA</h1>
+
+    <p><a href="https://ensc.bordeaux-inp.fr">Ecole Nationale Supérieure de Cognitique</a></p>
+
+    <p><a href="https://www.bpesquet.fr">Baptiste Pesquet</a></p>
+
+    
+    <a href="https://www.bpesquet.fr/course/ensc/ia/"><img src="https://www.bpesquet.fr/images/planet-64px.png" alt="Planet logo"></a>
+    
+    
+    
+</section>
+
+			<section>
+
+<h2 id="sommaire">Sommaire</h2>
+
+<ul>
+<li>Qu&rsquo;est-ce que l&rsquo;IA ?</li>
+<li>Histoire de l&rsquo;IA</li>
+<li>Principaux domaines d&rsquo;étude</li>
+<li>Avancées récentes</li>
+<li>Les enjeux de l&rsquo;IA</li>
+<li>Quel futur pour l&rsquo;IA ?</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="qu-est-ce-que-l-ia">Qu&rsquo;est-ce que l&rsquo;IA ?</h2>
+
+</section>
+				<section>
+
+<h2 id="tentative-de-définition">Tentative de définition</h2>
+
+<blockquote>
+<p>&ldquo;L&rsquo;IA consiste à parvenir à faire faire aux machines ce que l’homme fait aujourd’hui mieux qu’elles, notamment s’adapter, apprendre, communiquer et interagir d’une manière riche et variée avec leur environnement.&rdquo; (<a href="https://www.economie.gouv.fr/France-IA-intelligence-artificielle">FranceIA</a>)</p>
+</blockquote>
+
+</section>
+				<section>
+
+<h2 id="l-ia-interdisciplinaire-par-nature">L&rsquo;IA, interdisciplinaire par nature</h2>
+
+
+<figure>
+    
+        <img src="images/IA.jpeg" />
+    
+    
+    <figcaption>
+        <p>
+        
+        
+            Schéma : D. Marion
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<h2 id="l-ia-une-science-impossible">L&rsquo;IA, une science impossible ?</h2>
+
+<blockquote>
+<p>&ldquo;Tout problème pour lequel il n&rsquo;existe pas de solution algorithmique connue relève a priori de l&rsquo;IA.&rdquo; (J.L. Laurière)</p>
+
+<p>&ldquo;<a href="https://en.wikipedia.org/wiki/AI_effect">AI is whatever hasn&rsquo;t been done yet.</a>&rdquo; (L. Tesler)</p>
+</blockquote>
+
+<p class='fragment '
+  >
+  IA = frontière de l&rsquo;algorithmie
+</p>
+
+<p class='fragment '
+  >
+  Chaque progrès repousse cette frontière !
+</p>
+
+</section>
+				<section>
+
+<h2 id="histoire-de-l-ia">Histoire de l&rsquo;IA</h2>
+
+</section>
+				<section>
+
+<h2 id="la-vie-artificielle-un-rêve-depuis-l-antiquité">La vie artificielle : un rêve depuis l&rsquo;Antiquité</h2>
+
+<ul>
+<li>Héphaïstos et ses <a href="https://atelier-canope-95.canoprof.fr/eleve/Automates%20et%20robots/res/robot.dossierHtml/co/mythoGrecqueAutomates_2.html">objets animés</a> (Illiade, chant 18).</li>
+<li><a href="https://fr.wikipedia.org/wiki/Golem">Golems</a> de bois ou d&rsquo;argile de la tradition juive.</li>
+</ul>
+
+<p><img src="images/Prague-golem-reproduction.jpg" alt="Repoduction du Golem de Prague" /></p>
+
+</section>
+				<section>
+
+<h2 id="les-automates-au-fil-des-siècles">Les automates au fil des siècles</h2>
+
+<p><img src="images/automates_siecles.png" alt="Exemples d'automates" /></p>
+
+</section>
+				<section>
+
+<h2 id="1948-la-cybernétique-http-www-syti-net-cybernetics-html-science-des-systèmes">1948 : la <a href="http://www.syti.net/Cybernetics.html">cybernétique</a>, science des systèmes</h2>
+
+<p>Etude des communications et de leur régulation dans les systèmes naturels et artificiels.</p>
+
+<p>Fondée par N. Wiener. Basée sur la modélisation mathématique du neurone (McCulloch et Pitts, 1943) et la théorie de l&rsquo;information de C. Shannon (1948).</p>
+
+<p>Machines autocorrectives s&rsquo;adaptant à leur environnement au vu des erreurs commises (boucles de rétroaction), sans intention ni raisonnement.</p>
+
+</section>
+				<section>
+
+<p><img src="images/ai_brief_history.png" alt="Brief history of AI" /></p>
+
+</section>
+				<section>
+
+<section><h2 id="1956-conférence-de-dartmouth">1956 : conférence de Dartmouth</h2>
+
+<p>Parmi les participants : J. McCarthy et A. Samuel (Stanford), M. Minsky et C. Shannon (MIT), H. Simon et A. Newell (Carnegie Mellon), N. Rochester (IBM).</p>
+
+<p><img src="images/dartmouth_workshop.jpg" alt="Dartmouth workshop" /></p>
+
+</section>
+				<section>
+
+<blockquote>
+<p>&ldquo;We propose that a 2-month, 10-man study of <strong>artificial intelligence</strong> be carried out during the summer of 1956 at Dartmouth College. The study is to proceed on the basis of the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it [&hellip;].&rdquo;</p>
+</blockquote>
+</section>
+
+</section>
+				<section>
+
+<h2 id="une-histoire-mouvementée">Une histoire mouvementée</h2>
+
+
+<figure>
+    
+        <img src="images/ai_timeline.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://www.slideshare.net/dlavenda/ai-and-productivity"> 
+            David Lavenda, AI and productivity
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<section><h2 id="des-approches-divergentes">Des approches divergentes</h2>
+
+<ul>
+<li><strong>Symbolisme</strong> (ou <strong>cognitivisme</strong>) : pensée = manipulation de symboles. Définition de règles permettant de travailler sur des représentations de haut niveau.</li>
+<li><strong>Connexionnisme</strong> : pensée = calcul massivement parallèle de fonctions élémentaires. Emergence de comportements à partir des interactions individuelles entre éléments.</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="symbolisme-vs-connexionnisme">Symbolisme Vs Connexionnisme</h2>
+
+<figure>
+    
+        <img src="images/ai_approaches_timeline.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://doi.org/10.3917/res.211.0173"> 
+            Cardon, D., Cointet, J. &amp; Mazières, A. (2018). La revanche des neurones
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<h2 id="un-système-expert-mycin-1976">Un système expert : MYCIN (1976)</h2>
+
+<p>Diagnostic et proposition thérapeutique en médecine (infections bactériennes du sang).</p>
+
+<p>Exemple de règle :</p>
+
+<pre><code class="language-text">si le site de la culture étudiée est le sang
+   le gral de l'organisme est négatif
+   sa morphologie est de type bâtonnet
+   si la brûlure du patient est sérieuse
+
+alors il y a 0.4 chances que l'organismes soit pseudomonas
+</code></pre>
+</section>
+
+</section>
+				<section>
+
+<h2 id="l-été-jusqu-à-quand">L&rsquo;été&hellip; Jusqu&rsquo;à quand ?</h2>
+
+<p><img src="images/winteriscoming.jpg" alt="Is (AI) winter coming?" /></p>
+
+</section>
+				<section>
+
+<h2 id="principaux-domaines-d-étude">Principaux domaines d&rsquo;étude</h2>
+
+</section>
+				<section>
+
+<section><h2 id="une-cartographie-de-l-ia">Une cartographie de l&rsquo;IA</h2>
+
+<p><img src="images/ia_cartographie.jpeg" alt="Cartographie de l'IA" /></p>
+
+</section>
+				<section>
+
+<h2 id="résolution-de-problèmes">Résolution de problèmes</h2>
+
+<ul>
+<li>Algorithmes de recherche</li>
+<li>Heuristiques</li>
+<li>Satisfaction de contraintes</li>
+<li>&hellip;</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="connaissances-et-raisonnement">Connaissances et raisonnement</h2>
+
+<ul>
+<li>Logique</li>
+<li>Inférence</li>
+<li>Représentation des connaissances</li>
+<li>Web sémantique</li>
+<li>Ontologies</li>
+<li>&hellip;</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="apprentissage-automatique-machine-learning">Apprentissage automatique (Machine Learning)</h2>
+
+<p>Ensemble de techniques permettant à des machines de <strong>s’entraîner</strong> sur des bases d’exemples, d’en faire émerger des traits, de généraliser sur des exemples non encore rencontrés et de <strong>s&rsquo;améliorer</strong> continuellement avec l’expérience.</p>
+
+</section>
+				<section>
+
+<h2 id="communication-perception-et-action">Communication, perception et action</h2>
+
+<ul>
+<li>Vision par ordinateur</li>
+<li>Traitement du Langage Naturel (NLP)</li>
+<li>Robotique</li>
+<li>&hellip;</li>
+</ul>
+</section>
+
+</section>
+				<section>
+
+<h2 id="avancées-récentes">Avancées récentes</h2>
+
+</section>
+				<section>
+
+<section><h2 id="reconnaissance-visuelle">Reconnaissance visuelle</h2>
+
+<p><img src="images/sensetime.gif" alt="Visual reco" /></p>
+
+</section>
+				<section>
+
+<h2 id="compréhension-de-la-parole">Compréhension de la parole</h2>
+
+<p><img src="images/google-home-vs-amazon-echo.jpg" alt="Enceintes connectées" /></p>
+
+</section>
+				<section>
+
+<h2 id="véhicules-autonomes">Véhicules autonomes</h2>
+
+<p><img src="images/tesla-self-driving.gif" alt="Tesla self-driving car footage" /></p>
+
+</section>
+				<section>
+
+<h2 id="algorithmes-de-recommandation">Algorithmes de recommandation</h2>
+
+<p><img src="images/discover_weekly.png" alt="Spotify Discover Weekly" /></p>
+
+</section>
+				<section>
+
+<h2 id="jeux">Jeux</h2>
+
+<p><img src="images/ai_games.png" alt="DeepMind AlphaGo" /></p>
+
+<figure>
+    
+        <img src="images/ai_games_timeline.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://aiindex.org/"> 
+            Extrait du AI Index (2017)
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+</section>
+
+</section>
+				<section>
+
+<h2 id="apprentissage-profond-deep-learning">Apprentissage profond (Deep Learning)</h2>
+
+<p>Ensemble de techniques d’apprentissage automatique dans lesquelles de vastes réseaux de neurones artificiels exploitent de grandes quantités de données.</p>
+
+<p>A l&rsquo;origine de la majorité des avancées récentes en IA.</p>
+
+
+<figure>
+    
+        <img src="images/alexnet.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf"> 
+            Schéma simplifié du modèle AlexNet (2012)
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<section><h2 id="les-clés-du-succès">Les clés du succès</h2>
+
+<ul><li class="fragment">L&rsquo;explosion du volume de données disponibles (&ldquo;Big Data&rdquo;)</li><li class="fragment">L&rsquo;augmentation de la puissance de calcul des machines</li><li class="fragment">L&rsquo;optimisation d&rsquo;algorithmes connus depuis les années 1980</li></ul>
+
+</section>
+				<section>
+
+<h2 id="l-état-de-l-art-vers-1990">L&rsquo;état de l&rsquo;art vers 1990</h2>
+
+<figure>
+    
+        <img src="images/lecun_lenet.gif" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="http://yann.lecun.com/exdb/lenet/"> 
+            Vintage LeNet 5, LeCun et al
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<p><img src="images/big_data_universe.png" alt="Big data universe" /></p>
+
+</section>
+				<section>
+
+<p><img src="images/infographic2-intel-past-present.gif" alt="Computer power sheet" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="les-enjeux-de-l-ia">Les enjeux de l&rsquo;IA</h2>
+
+</section>
+				<section>
+
+<h2 id="enjeux-stratégiques">Enjeux stratégiques</h2>
+
+<p><a href="https://www.economie.gouv.fr/files/files/PDF/2017/Rapport_synthese_France_IA_.pdf">Rapport FranceIA</a> (2017) :</p>
+
+<ul>
+<li>Importance des données (nouveau pétrole ?)</li>
+<li>Nécessité d&rsquo;infrastructures de calcul puissantes</li>
+<li>Guerre des talents au niveau mondial</li>
+<li>Risque de nouvelles dépendances économiques</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="l-ia-et-l-emploi">l&rsquo;IA et l&rsquo;emploi</h2>
+
+<ul>
+<li>Automatisation des tâches répétitives, même complexes (médical, juridique, etc).</li>
+<li>Conséquences majeures sur les métiers et les activités au sein des organisations.</li>
+<li>Impact net difficile à prédire.</li>
+</ul>
+
+<div style="position: relative; height: 270px; width: 480px; overflow: hidden; margin: 0 auto 10px;">
+    <iframe src="//www.youtube.com/embed/gWmRkYsLzB4" style="top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+</div>
+      
+
+</section>
+				<section>
+
+<h2 id="enjeux-éthiques-et-sociétaux">Enjeux éthiques et sociétaux</h2>
+
+<ul>
+<li><a href="https://www.lesechos.fr/intelligence-artificielle/veille-technologique/0302095676803-les-biais-une-arme-de-discrimination-massive-2200462.php">Biais d&rsquo;apprentissage</a></li>
+<li>Transparence et confiance
+
+<ul>
+<li>Performance Vs explicabilité</li>
+<li>Acceptabilité sociale</li>
+</ul></li>
+<li>Responsabilité et régulation
+
+<ul>
+<li>Problématique des <a href="https://futureoflife.org/open-letter-autonomous-weapons">armes autonomes</a></li>
+</ul></li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="le-futur-de-l-ia">Le futur de l&rsquo;IA</h2>
+
+</section>
+				<section>
+
+<h2 id="une-ia-faible-pour-longtemps">Une IA faible pour longtemps</h2>
+
+<ul><li class="fragment">IA actuelle <strong>faible</strong> (<em>narrow/weak AI</em>), spécialisée dans un seul domaine</li><li class="fragment">IA <strong>forte</strong> (<em>strong AI</em>) : <ul><li class="fragment"><em>General AI (AGI)</em>, capable de réaliser les mêmes tâches intellectuelles qu&rsquo;un être humain</li><li class="fragment">IA douée d&rsquo;une conscience d&rsquo;elle-même et éprouvant des sentiments.</li></ul></li></ul>
+
+</section>
+				<section>
+
+<h2 id="singularité-https-fr-wikipedia-org-wiki-singularit-c3-a9-technologique-technologique"><a href="https://fr.wikipedia.org/wiki/Singularit%C3%A9_technologique">Singularité</a> (technologique)</h2>
+
+
+<figure>
+    
+        <img src="images/singularity.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://www.youtube.com/watch?v=c4qe0v--Mcc"> 
+            Extrait d&#39;une présentation de B. Claverie pour l&#39;Université du futur (2018)
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<h2 id="transhumanisme-https-fr-wikipedia-org-wiki-transhumanisme"><a href="https://fr.wikipedia.org/wiki/Transhumanisme">Transhumanisme</a></h2>
+
+<p>Courant de pensée visant à améliorer la condition humaine à travers les technologies :</p>
+
+<ul>
+<li>Augmentation des capacités physiques et intellectuelles</li>
+<li>Elimination du vieillissement</li>
+<li>Immortalité</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="les-bébés-ces-champions">Les bébés, ces champions</h2>
+
+
+<figure>
+    
+        <img src="images/conceptual_acquisition_infants.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        
+            Extrait des travaux d&#39;E. Dupoux
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<h2 id="les-prochaines-étapes-pour-l-ia">Les prochaines étapes pour l&rsquo;IA</h2>
+
+<ul><li class="fragment">Capacité à apprendre à partir de peu d&rsquo;exemples</li><li class="fragment">Bon sens</li></ul>
+
+<p class='fragment '
+  >
+  <a href="https://www.youtube.com/watch?v=NrPeC1ez-M4"><img src="images/google_car_gta.gif" alt="Google self-driving car in GTA" /></a>
+</p>
+</section>
+				</div>
+	</div>
+	<div>
+		<a href="https://ensc.bordeaux-inp.fr">
+			<img src="https://www.bpesquet.fr/images/ENSC.jpg" style="position: absolute;
+						bottom: 10px;
+						left: 10px;" />
+		</a>
+	</div>
+
+	<script src="https://www.bpesquet.fr/reveal.js/lib/js/head.min.js"></script>
+	<script src="https://www.bpesquet.fr/reveal.js/js/reveal.js"></script>
+
+	<script>
+		
+		
+		
+		Reveal.initialize({
+			
+			history: false,
+			
+			slideNumber: true,
+			
+			transition: "convex",
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-MML-AM_HTMLorMML'  
+			},
+			dependencies: [
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/marked.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/markdown.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/notes\/notes.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/zoom-js\/zoom.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/highlight\/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/math\/math.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Baptiste Pesquet</title>
+    <link>https://www.bpesquet.fr/publication/</link>
+    <description>Recent content in Publications on Baptiste Pesquet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 25 May 2018 09:57:31 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.bpesquet.fr/publication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deep Learning Workshop</title>
+      <link>https://www.bpesquet.fr/publication/deep-learning-workshop/</link>
+      <pubDate>Fri, 25 May 2018 09:57:31 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/deep-learning-workshop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Les bases de données (archive PDF)</title>
+      <link>https://www.bpesquet.fr/publication/sgbd/</link>
+      <pubDate>Thu, 24 May 2018 19:50:25 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/sgbd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Les réseaux (archive PDF)</title>
+      <link>https://www.bpesquet.fr/publication/reseaux/</link>
+      <pubDate>Thu, 24 May 2018 19:46:55 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/reseaux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Le langage SQL (archive PDF)</title>
+      <link>https://www.bpesquet.fr/publication/langage-sql/</link>
+      <pubDate>Thu, 24 May 2018 19:33:41 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/langage-sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Premiers pas avec le framework PHP Silex</title>
+      <link>https://www.bpesquet.fr/publication/premiers-pas-silex/</link>
+      <pubDate>Thu, 24 May 2018 14:28:19 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/premiers-pas-silex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Evoluez vers une architecture PHP professionnelle</title>
+      <link>https://www.bpesquet.fr/publication/evoluez-architecture-php-professionnelle/</link>
+      <pubDate>Thu, 24 May 2018 14:26:13 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/evoluez-architecture-php-professionnelle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Evoluez vers une architecture MVC en PHP</title>
+      <link>https://www.bpesquet.fr/publication/evoluez-architecture-mvc-php/</link>
+      <pubDate>Thu, 24 May 2018 14:23:56 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/evoluez-architecture-mvc-php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Premiers pas avec le framework Bootstrap</title>
+      <link>https://www.bpesquet.fr/publication/premiers-pas-bootstrap/</link>
+      <pubDate>Thu, 24 May 2018 14:22:07 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/premiers-pas-bootstrap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>(Draft) Guide du développeur PHP</title>
+      <link>https://www.bpesquet.fr/publication/guide-developpeur-php/</link>
+      <pubDate>Thu, 24 May 2018 14:19:52 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/guide-developpeur-php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Créez des pages web interactives avec Javascript</title>
+      <link>https://www.bpesquet.fr/publication/creez-pages-web-interactives-javascript/</link>
+      <pubDate>Thu, 24 May 2018 14:17:39 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/creez-pages-web-interactives-javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programmation orientée objet en C#</title>
+      <link>https://www.bpesquet.fr/publication/poo-csharp/</link>
+      <pubDate>Wed, 23 May 2018 13:29:03 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/poo-csharp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programmation évènementielle avec les WinForms</title>
+      <link>https://www.bpesquet.fr/publication/prog-evt-winforms/</link>
+      <pubDate>Wed, 23 May 2018 11:17:41 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/prog-evt-winforms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Génie logiciel</title>
+      <link>https://www.bpesquet.fr/publication/genie-logiciel/</link>
+      <pubDate>Wed, 23 May 2018 10:12:55 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/genie-logiciel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apprenez à coder avec JavaScript</title>
+      <link>https://www.bpesquet.fr/publication/apprenez-coder-javascript/</link>
+      <pubDate>Tue, 22 May 2018 23:39:13 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/apprenez-coder-javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The JavaScript Way</title>
+      <link>https://www.bpesquet.fr/publication/the-javascript-way/</link>
+      <pubDate>Tue, 22 May 2018 23:26:21 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/publication/the-javascript-way/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

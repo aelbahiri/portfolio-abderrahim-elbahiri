@@ -1,0 +1,25 @@
+.reveal section img {
+    border: 0px;
+    box-shadow: unset;
+}
+
+/* Youtube videos */
+.reveal iframe {
+    width: 640px;
+    height: 385px;
+}
+
+/* Makes slide titles smaller */
+.reveal h2 {
+    font-size: 1.3em;
+}
+
+/* Make citations take a little more screen space */
+.reveal blockquote {
+    width: 85%;
+}
+
+/* Reduce font size for figure captions */
+.reveal figcaption p {
+    font-size: 0.4em;
+}

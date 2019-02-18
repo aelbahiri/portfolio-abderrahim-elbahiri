@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ecole Nationale Supérieure de Cognitique on Baptiste Pesquet</title>
+    <link>https://www.bpesquet.fr/course/ensc/</link>
+    <description>Recent content in Ecole Nationale Supérieure de Cognitique on Baptiste Pesquet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 04 Oct 2018 09:48:50 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.bpesquet.fr/course/ensc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Réalité virtuelle</title>
+      <link>https://www.bpesquet.fr/course/ensc/realite-virtuelle/</link>
+      <pubDate>Sat, 01 Sep 2018 15:27:56 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/course/ensc/realite-virtuelle/</guid>
+      <description>Compléments  Unity Assets organization. Un article qui propose une solution pour organiser le répertoire des Assets pour les projets de taille importante.
+ Difference between Update() and FixedUpdate(). Une explication claire provenant du forum Unity.
+ Mastering Coroutines in Unity. Une explication détaillée de l&amp;rsquo;intérêt et du fonctionnement des Coroutines.
+ The Strange Numbers That Birthed Modern Algebra. Les fondements mathématiques des Quaternions, utilisés en interne par Unity pour gérer les rotations.</description>
+    </item>
+    
+    <item>
+      <title>Intelligence artificielle</title>
+      <link>https://www.bpesquet.fr/course/ensc/ia/</link>
+      <pubDate>Fri, 25 May 2018 09:08:19 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/course/ensc/ia/</guid>
+      <description>Tour d&amp;rsquo;horizon  Intelligences artificielles, promesses et défis. Un cahier de veille de l&amp;rsquo;Institut Mines-Telecom abordant l&amp;rsquo;IA sous de nombreux aspects.
+ Vivre à l&amp;rsquo;ère des Intelligences Artificielles, un diaporama réalisé par l&amp;rsquo;un des auteurs du précédent cahier.
+ AI for humanity. Le rapport rendu en 2018 par Cédric Villani et la stratégie française en matière d&amp;rsquo;IA.
+  Histoire et philosophie de l&amp;rsquo;IA  A &amp;lsquo;Brief&amp;rsquo; History of Neural Nets and Deep Learning.</description>
+    </item>
+    
+    <item>
+      <title>Programmation avancée</title>
+      <link>https://www.bpesquet.fr/course/ensc/prog-avancee/</link>
+      <pubDate>Thu, 24 May 2018 23:02:44 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/course/ensc/prog-avancee/</guid>
+      <description> Compléments  C# : comprendre les différences entre readonly et const  </description>
+    </item>
+    
+    <item>
+      <title>Génie logiciel</title>
+      <link>https://www.bpesquet.fr/course/ensc/genie-logiciel/</link>
+      <pubDate>Wed, 23 May 2018 11:35:22 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/course/ensc/genie-logiciel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gestion de projet</title>
+      <link>https://www.bpesquet.fr/course/ensc/gestion-projet/</link>
+      <pubDate>Wed, 23 May 2018 09:31:07 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/course/ensc/gestion-projet/</guid>
+      <description> Compléments  The test pyramid Software testing anti-patterns Débuter avec la méthode Scrum sur Trello.    </description>
+    </item>
+    
+    <item>
+      <title>Développement web</title>
+      <link>https://www.bpesquet.fr/course/ensc/web/</link>
+      <pubDate>Tue, 22 May 2018 22:54:22 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/course/ensc/web/</guid>
+      <description> Compléments  Demystifying CORS  </description>
+    </item>
+    
+  </channel>
+</rss>

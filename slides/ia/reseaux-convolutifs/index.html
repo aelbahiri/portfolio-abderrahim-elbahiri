@@ -1,0 +1,527 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Les réseaux de neurones à convolution (CNN)</title>
+
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/theme/white.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/lib/css/zenburn.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/css/reveal.css">
+
+	
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/pdf.css' : 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+    <h1>Les réseaux de neurones à convolution (CNN)</h1>
+
+    <p><a href="https://ensc.bordeaux-inp.fr">Ecole Nationale Supérieure de Cognitique</a></p>
+
+    <p><a href="https://www.bpesquet.fr">Baptiste Pesquet</a></p>
+
+    
+    
+    <a href="https://github.com/bpesquet/machine-learning-handbook"><img src="https://www.bpesquet.fr/images/GitHub-Mark-64px.png" alt="GitHub logo"></a>
+    
+    
+</section>
+
+			<section>
+
+<h2 id="sommaire">Sommaire</h2>
+
+<ul>
+<li>Principe de fonctionnement</li>
+<li>Histoire des CNN</li>
+<li>Mise en oeuvre avec Keras</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="principe-de-fonctionnement">Principe de fonctionnement</h2>
+
+</section>
+				<section>
+
+<h2 id="justification">Justification</h2>
+
+<p>Le monde visuel se caractérise par :</p>
+
+<ul>
+<li>Une invariance par translation</li>
+<li>Des relations hiérarchiques de type tout/partie</li>
+</ul>
+
+<p>Les modèles classiques sont incapables de détecter des patterns locaux dans une image.</p>
+
+</section>
+				<section>
+
+<h2 id="architecture-générale">Architecture générale</h2>
+
+
+<figure>
+    
+        <img src="images/cnn_architecture.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://developers.google.com/machine-learning/practica/image-classification/convolutional-neural-networks"> 
+            Extrait du cours d&#39;introduction au Machine Learning de Google
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<section><h2 id="l-opération-de-convolution">L&rsquo;opération de convolution</h2>
+
+<p>Application d&rsquo;un filtre ou <em>kernel</em> à des données pour produire un résultat (<em>feature map</em>).</p>
+
+</section>
+				<section>
+
+<h2 id="application-du-filtre">Application du filtre</h2>
+
+<figure>
+    
+        <img src="images/convolution_overview.gif" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://developers.google.com/machine-learning/practica/image-classification/convolutional-neural-networks"> 
+            Exemple de convolution avec filtre 3x3 de profondeur 1 appliqué sur une donnée 5x5. Extrait du cours d&#39;introduction au Machine Learning de Google
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<p><img src="images/convolution_example.jpeg" alt="Convolution example" /></p>
+
+</section>
+				<section>
+
+<h2 id="paramètres">Paramètres</h2>
+
+<ul>
+<li><strong>Dimension</strong> : celle du filtre (2D pour les images).</li>
+<li><strong>Taille du filtre</strong> : le plus souvent 3x3 ou 5x5.</li>
+<li><strong>Nombre de filtres</strong> : détermine le nombre de <em>feature maps</em> produites par la convolution.</li>
+<li><strong><em>Stride</em></strong> : pas utilisé pour faire glisser le filtre. Le plus souvent 1.</li>
+<li><strong><em>Padding</em></strong> : ajout de zéros autour des données pour conserver leur dimension en sortie.</li>
+</ul>
+
+</section>
+				<section>
+
+<figure>
+    
+        <img src="images/2d_convol.gif" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://towardsdatascience.com/types-of-convolutions-in-deep-learning-717013397f4d"> 
+            Convolution 2D 3x3 avec stride de 1 et padding
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="convolution-sur-les-images">Convolution sur les images</h2>
+
+<ul>
+<li>Une image possède plusieurs canaux de couleur.</li>
+<li>Nombre de canaux = profondeur du filtre.</li>
+</ul>
+
+<figure>
+    
+        <img src="images/conv_image.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2"> 
+            Convolution 2D sur une image 32x32x3 avec 10 filtres
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<p><a href="https://stackoverflow.com/a/44628011/2380880"><img src="images/2D_conv_over_rgb_image.png" alt="2D convolution over RGB image" /></a></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="fonction-d-activation">Fonction d&rsquo;activation</h2>
+
+<p>Permet d&rsquo;introduire de la non-linéarité dans le modèle.</p>
+
+<p><img src="images/relu.png" alt="ReLU" /></p>
+
+</section>
+				<section>
+
+<section><h2 id="l-opération-de-pooling">L&rsquo;opération de pooling</h2>
+
+<ul>
+<li>Réduction de la dimensionnalité des <em>feature maps</em>.</li>
+<li>Le plus souvent par sélection des valeurs maximales (<em>max pooling</em>).</li>
+</ul>
+
+<figure>
+    
+        <img src="images/maxpool_animation.gif" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://developers.google.com/machine-learning/practica/image-classification/convolutional-neural-networks"> 
+            Max pooling avec filtre 2x2 et stride de 2. Extrait du cours d&#39;introduction au Machine Learning de Google
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<figure>
+    
+        <img src="images/maxpooling_image.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2"> 
+            Pooling avec filtre 2x2 et stride de 2 sur 10 feature maps de 32x32
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+</section>
+
+</section>
+				<section>
+
+<h2 id="entraînement-d-un-cnn">Entraînement d&rsquo;un CNN</h2>
+
+<p>Même principe que pour un réseau dense : <a href="https://www.bpesquet.fr/slides/ia/reseaux-neurones/">rétropropagation</a> + <a href="ttps://www.bpesquet.fr/slides/ia/fondamentaux-ml/">descente de gradient</a></p>
+
+<p><a href="https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/">Backpropagation In Convolutional Neural Networks</a></p>
+
+</section>
+				<section>
+
+<section><h2 id="interprétation">Interprétation</h2>
+
+<ul>
+<li>Couches de convolution = extracteurs de caractéristiques de plus en plus abstraites.</li>
+<li>Couches denses = exploitation de ces caractéristiques.</li>
+</ul>
+
+</section>
+				<section>
+
+<figure>
+    
+        <img src="images/representation_learning.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://harishnarayanan.org/writing/artistic-style-transfer/"> 
+            Pooling avec filtre 2x2 et stride de 2 sur 10 feature maps de 32x32
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<p><a href="https://transcranial.github.io/keras-js/#/mnist-cnn">Visualizing convnet layers on MNIST</a></p>
+
+<figure>
+    
+        <img src="images/conv_all_mnist.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="http://scs.ryerson.ca/~aharley/vis/conv/flat.html"> 
+            Another visualization of intermediate layers on MNIST
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+</section>
+
+</section>
+				<section>
+
+<h2 id="histoire-des-cnn">Histoire des CNN</h2>
+
+</section>
+				<section>
+
+<h2 id="les-prémisses-lenet5-1993">Les prémisses: LeNet5 (1993)</h2>
+
+<p><img src="images/lenet5.jpg" alt="LeNet5" /></p>
+
+<div style="position: relative; height: 270px; width: 480px; overflow: hidden; margin: 0 auto 10px;">
+    <iframe src="//www.youtube.com/embed/FwFduRA_L6Q" style="top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+</div>
+      
+
+</section>
+				<section>
+
+<section><h2 id="l-avènement-ilsvrc">L&rsquo;avènement : ILSVRC</h2>
+
+<ul>
+<li><a href="http://image-net.org/challenges/LSVRC/"><em>ImageNet Large Scale Visual Recognition Challenge</em></a></li>
+<li>Compétition de classification d&rsquo;images basée sur le dataset <a href="http://www.image-net.org/">ImageNet</a>.</li>
+</ul>
+
+<p><img src="images/ILSVRC_results.jpg" alt="ILSVRC results" /></p>
+
+</section>
+				<section>
+
+<h2 id="alexnet-2012">AlexNet (2012)</h2>
+
+<p>Entraîné sur 2 GPU pendant 5 à 6 jours.</p>
+
+<p><img src="images/alexnet2.png" alt="AlexNet" /></p>
+
+</section>
+				<section>
+
+<p><img src="images/go_deeper.png" alt="We need to go deeper" /></p>
+
+</section>
+				<section>
+
+<h2 id="vgg-2014">VGG (2014)</h2>
+
+<p><img src="images/vgg16.png" alt="VGG16" /></p>
+
+</section>
+				<section>
+
+<h2 id="googlenet-inception-2014">GoogLeNet/Inception (2014)</h2>
+
+<ul>
+<li>9 modules Inception, plus de 100 couches au total.</li>
+<li>Entraîné sur plusieurs GPU pendant environ une semaine.</li>
+</ul>
+
+<p><img src="images/google_inception.jpg" alt="Inception" /></p>
+
+</section>
+				<section>
+
+<h2 id="microsoft-resnet-2015">Microsoft ResNet (2015)</h2>
+
+<ul>
+<li>152 couches</li>
+<li>Entraîné sur 8 GPU pendant 2 à 3 semaines.</li>
+<li>Taux d&rsquo;erreur inférieur à celui d&rsquo;un humain moyen.</li>
+</ul>
+
+<p><img src="images/resnet_archi.png" alt="ResNet" /></p>
+
+</section>
+				<section>
+
+<p><img src="images/deeper_model.jpg" alt="Deeper model" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="mise-en-oeuvre-avec-keras">Mise en oeuvre avec Keras</h2>
+
+</section>
+				<section>
+
+<h2 id="couche-conv2d">Couche Conv2D</h2>
+
+<p>Convolution spatiale pour les images.</p>
+
+<ul>
+<li>Entrée : tenseur 4D <code>(batch_size, rows, cols, channels)</code></li>
+<li>Sortie : tenseur 4D <code>(batch_size, new_rows, new_cols, filters)</code></li>
+</ul>
+
+<pre><code class="language-python"># Add a Conv2D layer to a model
+# 64: number of filters
+# (3, 3): size of the convolution kernel (2D convolution window)
+# See https://keras.io/layers/convolutional/ for API details
+model.add(Conv2D(64, (3, 3), activation='relu'))
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="couche-maxpooling2d">Couche MaxPooling2D</h2>
+
+<p>Pooling pour les données spatiales.</p>
+
+<ul>
+<li>Entrée : tenseur 4D <code>(batch_size, rows, cols, channels)</code></li>
+<li>Sortie : tenseur 4D <code>(batch_size, pooled_rows, pooled_cols, channels)</code></li>
+</ul>
+
+<pre><code class="language-python"># Add a MaxPooling2D layer to a model
+# (2, 2): factors by which to downscale (vertical, horizontal)
+# See https://keras.io/layers/convolutional/ for API details
+model.add(MaxPooling2D((2, 2)))
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="couche-flatten">Couche Flatten</h2>
+
+<p>&ldquo;Aplatit&rdquo; un tenseur en une matrice. Souvent utilisée en entrée d&rsquo;une couche dense.</p>
+
+<ul>
+<li>Entrée : tenseur de dimension &gt;= 2</li>
+<li>Sortie : tenseur 2D</li>
+</ul>
+
+<pre><code class="language-python"># Output shape: (None, 3, 3, 64)
+model.add(Conv2D(64, (3, 3), activation='relu'))
+
+# Add a Flatten layer to a model
+# Output shape: (None, 576)
+model.add(Flatten())
+
+# Output shape: (None, 64)
+model.add(Dense(64, activation='relu'))
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="imagedatagenerator">ImageDataGenerator</h2>
+
+<p>Génère des lots de tenseurs images avec possibilité de <em>data augmentation</em> en temps réel.</p>
+
+<pre><code class="language-python">train_datagen = ImageDataGenerator(
+        rescale=1./255,
+        shear_range=0.2,
+        zoom_range=0.2,
+        horizontal_flip=True)
+train_generator = train_datagen.flow_from_directory(
+        'data/train',
+        target_size=(150, 150),
+        batch_size=32,
+        class_mode='binary')
+model.fit_generator(
+        train_generator,
+        steps_per_epoch=2000,
+        epochs=50)
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="en-pratique">En pratique</h2>
+
+<p><a href="http://nbviewer.jupyter.org/github/bpesquet/machine-learning-handbook/blob/master/deep-learning/Convolutional_Neural_Networks.ipynb">Convolutional Neural Networks with Keras</a></p>
+</section>
+				</div>
+	</div>
+	<div>
+		<a href="https://ensc.bordeaux-inp.fr">
+			<img src="https://www.bpesquet.fr/images/ENSC.jpg" style="position: absolute;
+						bottom: 10px;
+						left: 10px;" />
+		</a>
+	</div>
+
+	<script src="https://www.bpesquet.fr/reveal.js/lib/js/head.min.js"></script>
+	<script src="https://www.bpesquet.fr/reveal.js/js/reveal.js"></script>
+
+	<script>
+		
+		
+		
+		Reveal.initialize({
+			
+			history: false,
+			
+			slideNumber: true,
+			
+			transition: "convex",
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-MML-AM_HTMLorMML'  
+			},
+			dependencies: [
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/marked.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/markdown.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/notes\/notes.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/zoom-js\/zoom.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/highlight\/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/math\/math.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>

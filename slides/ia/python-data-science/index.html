@@ -1,0 +1,370 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Python et la Data Science</title>
+
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/theme/white.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/lib/css/zenburn.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/css/reveal.css">
+
+	
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/pdf.css' : 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+    <h1>Python et la Data Science</h1>
+
+    <p><a href="https://ensc.bordeaux-inp.fr">Ecole Nationale Supérieure de Cognitique</a></p>
+
+    <p><a href="https://www.bpesquet.fr">Baptiste Pesquet</a></p>
+
+    
+    
+    <a href="https://github.com/bpesquet/machine-learning-handbook"><img src="https://www.bpesquet.fr/images/GitHub-Mark-64px.png" alt="GitHub logo"></a>
+    
+    
+</section>
+
+			<section>
+
+<h2 id="sommaire">Sommaire</h2>
+
+<ul>
+<li>Introduction à la Data Science</li>
+<li>Pourquoi Python ?</li>
+<li>Outils Python pour la Data Science
+
+<ul>
+<li>Installation simplifiée avec Anaconda</li>
+<li>Partage de code avec Jupyter Notebook</li>
+<li>Calcul mathématique avec NumPy</li>
+<li>Analyse de données avec Pandas</li>
+<li>Création de graphiques avec Matplotlib/Seaborn</li>
+</ul></li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="introduction-à-la-data-science">Introduction à la Data Science</h2>
+
+</section>
+				<section>
+
+<h2 id="qu-est-ce-que-la-data-science">Qu&rsquo;est-ce que la Data Science ?</h2>
+
+<ul>
+<li>Objectif général : extraire de la connaissance à partir de données.</li>
+<li>Expression popularisée à partir de 1997 par certains statisticiens.</li>
+<li>2012 : &ldquo;Sexiest job of the 21st century&rdquo; (Harvard Business Review).</li>
+<li><a href="https://en.wikipedia.org/wiki/Data_science#Relationship_to_statistics">Controverse</a> sur l&rsquo;intérêt d&rsquo;employer cette expression.</li>
+</ul>
+
+</section>
+				<section>
+
+<section><h2 id="les-disciplines-de-la-data-science">Les disciplines de la Data Science</h2>
+
+<figure>
+    
+        <img src="images/DataScienceDisciplines.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://fr.wikipedia.org/wiki/Science_des_donn%C3%A9es"> 
+            Source : Wikipedia
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<figure>
+    
+        <img src="images/Data_Science_VD_conway.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram"> 
+            Data Science Venn Diagram by D. Conway (2013)
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<figure>
+    
+        <img src="images/DS_VD_Kolassa.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram"> 
+            Data Scientist Venn Diagram by S. Kolassa (2015)
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+</section>
+
+</section>
+				<section>
+
+<h2 id="pourquoi-python">Pourquoi Python ?</h2>
+
+</section>
+				<section>
+
+<h2 id="le-langage-python">Le langage Python</h2>
+
+<p>Langage de programmation sous licence libre créé en 1989 par <a href="https://fr.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>.</p>
+
+<p><img src="images/Python_logo.png" alt="Python logo" /></p>
+
+<ul>
+<li>Multi-paradigmes (procédural, fonctionnel, objet)</li>
+<li>Typage dynamique</li>
+<li>Gestion automatique de la mémoire</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="la-syntaxe-de-python">La syntaxe de Python</h2>
+
+<pre><code class="language-python">def bonjour(prenom):
+    print(&quot;Bonjour&quot;, prenom)
+
+amis = [&quot;Lou&quot;, &quot;David&quot;, &quot;Iggy&quot;]
+
+for ami in amis:
+    bonjour(ami)
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="en-pratique">En pratique</h2>
+
+<p><a href="http://nbviewer.jupyter.org/github/bpesquet/machine-learning-handbook/blob/master/tools/Python.ipynb">Python Syntax Cheatsheet</a></p>
+
+</section>
+				<section>
+
+<h2 id="python-le-standard-pour-la-data-science">Python, le standard pour la Data Science</h2>
+
+<ul><li class="fragment">Qualités du langage (logique, simplicité, souplesse)</li><li class="fragment">Implication de la communauté scientifique et universitaire</li><li class="fragment">Existence de nombreuses bibliothèques <em>open source</em> dédiées</li></ul>
+
+</section>
+				<section>
+
+<h2 id="outils-python-pour-la-data-science">Outils Python pour la Data Science</h2>
+
+</section>
+				<section>
+
+<h2 id="anaconda-https-www-anaconda-com-distribution"><a href="https://www.anaconda.com/distribution/">Anaconda</a></h2>
+
+<p>Distribution incluant Python et de nombreux outils pour la Data Science</p>
+
+<p><img src="images/anaconda_distro.png" alt="Anaconda content" /></p>
+
+</section>
+				<section>
+
+<section><h2 id="jupyter-notebook">Jupyter Notebook</h2>
+
+<p><a href="https://jupyter.org/"><img src="images/ipython.png" alt="IPython" /></a></p>
+
+<ul>
+<li>Interface pour utiliser <a href="https://ipython.org/">IPython</a> dans un navigateur</li>
+<li>Regroupe texte, code (interactif) et images dans un même document (extension <em>.ipynb</em>)</li>
+<li>Standard pour le partage de résultats scientifiques</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="google-colaboratory">Google Colaboratory</h2>
+
+<p>Environnement <em>cloud</em> d&rsquo;exécution de notebooks Jupyter, avec possibilité d&rsquo;utiliser un GPU.</p>
+
+<p><a href="https://colab.research.google.com"><img src="images/Google-Colaboratory.png" alt="Google Colaboratory" /></a></p>
+</section>
+
+</section>
+				<section>
+
+<section><p><a href="http://www.numpy.org/"><img src="images/numpy.png" alt="NumPy logo" /></a></p>
+
+<ul>
+<li>Librairie Python pour le calcul numérique</li>
+<li>Gère efficacement les tableaux multidimensionnels</li>
+</ul>
+
+<pre><code class="language-python">import numpy as np
+
+x = np.array([1, 4, 2, 5, 3])
+print(x[:2])  # [1 4]
+print(x[2:])  # [2 5 3]
+print(np.sort(x))  # [1, 2, 3, 4, 5]
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="numpy-et-les-tenseurs">NumPy et les tenseurs</h2>
+
+<p>Tenseur : ensemble de valeurs (très souvent numériques) stockées dans un tableau multidimensionnel</p>
+
+<ul>
+<li>Vecteur = tenseur à une dimension</li>
+<li>Matrice = tenseur à deux dimensions</li>
+</ul>
+</section>
+
+</section>
+				<section>
+
+<h2 id="en-pratique-1">En pratique</h2>
+
+<p><a href="http://nbviewer.jupyter.org/github/bpesquet/machine-learning-handbook/blob/master/tools/NumPy.ipynb">Tensor Management with NumPy</a></p>
+
+</section>
+				<section>
+
+<p><a href="https://pandas.pydata.org/"><img src="images/pandas_logo.png" alt="Pandas logo" /></a></p>
+
+<ul>
+<li>Librairie Python pour l&rsquo;analyse de données</li>
+<li>Facilite la gestion de données hétérogènes</li>
+</ul>
+
+<pre><code class="language-python">import pandas as pd
+
+pop = pd.Series({'CAL':38332521, 'TEX':26448193, 'NY':19651127})
+area = pd.Series({'CAL':423967, 'TEX':695662, 'NY':141297})
+states = pd.DataFrame({'population':pop, 'area':area})
+</code></pre>
+
+<p><img src="images/pandas_result.png" alt="Code result" /></p>
+
+</section>
+				<section>
+
+<h2 id="en-pratique-2">En pratique</h2>
+
+<p><a href="http://nbviewer.jupyter.org/github/bpesquet/machine-learning-handbook/blob/master/tools/Pandas.ipynb">Data Analysis with Pandas</a></p>
+
+</section>
+				<section>
+
+<section><p><a href="https://matplotlib.org/"><img src="images/matplotlib_logo.png" alt="Matplotlib logo" /></a></p>
+
+<p>Librairie Python pour la création de graphiques 2D</p>
+
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 10, 100)
+plt.plot(x, np.cos(x))
+</code></pre>
+
+<p><img src="images/mpl_result.png" alt="Code result" /></p>
+
+</section>
+				<section>
+
+<h2 id="seaborn-https-seaborn-pydata-org"><a href="https://seaborn.pydata.org/">Seaborn</a></h2>
+
+<ul>
+<li>Librairie Python de visualisation de données</li>
+<li>Améliore l&rsquo;apparence des graphiques Matplotlib</li>
+</ul>
+
+<pre><code class="language-python">import seaborn as sns
+sns.set()
+</code></pre>
+
+<p><img src="images/seaborn_result.png" alt="Code result" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="en-pratique-3">En pratique</h2>
+
+<p><a href="http://nbviewer.jupyter.org/github/bpesquet/machine-learning-handbook/blob/master/tools/Matplotlib.ipynb">Plotting with Matplotlib and Seaborn</a></p>
+</section>
+				</div>
+	</div>
+	<div>
+		<a href="https://ensc.bordeaux-inp.fr">
+			<img src="https://www.bpesquet.fr/images/ENSC.jpg" style="position: absolute;
+						bottom: 10px;
+						left: 10px;" />
+		</a>
+	</div>
+
+	<script src="https://www.bpesquet.fr/reveal.js/lib/js/head.min.js"></script>
+	<script src="https://www.bpesquet.fr/reveal.js/js/reveal.js"></script>
+
+	<script>
+		
+		
+		
+		Reveal.initialize({
+			
+			history: false,
+			
+			slideNumber: true,
+			
+			transition: "convex",
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-MML-AM_HTMLorMML'  
+			},
+			dependencies: [
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/marked.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/markdown.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/notes\/notes.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/zoom-js\/zoom.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/highlight\/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/math\/math.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>

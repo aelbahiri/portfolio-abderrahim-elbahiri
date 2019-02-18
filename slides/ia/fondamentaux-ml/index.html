@@ -1,0 +1,1062 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Les fondamentaux du Machine Learning</title>
+
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/theme/white.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/lib/css/zenburn.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/css/reveal.css">
+
+	
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/pdf.css' : 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+    <h1>Les fondamentaux du Machine Learning</h1>
+
+    <p><a href="https://ensc.bordeaux-inp.fr">Ecole Nationale Supérieure de Cognitique</a></p>
+
+    <p><a href="https://www.bpesquet.fr">Baptiste Pesquet</a></p>
+
+    
+    
+    <a href="https://github.com/bpesquet/machine-learning-handbook"><img src="https://www.bpesquet.fr/images/GitHub-Mark-64px.png" alt="GitHub logo"></a>
+    
+    
+</section>
+
+			<section>
+
+<h2 id="sommaire">Sommaire</h2>
+
+<ul>
+<li>Introduction au Machine Learning</li>
+<li>Anatomie d&rsquo;un système de ML supervisé</li>
+<li>Les étapes d&rsquo;un projet de ML</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="introduction-au-machine-learning">Introduction au Machine Learning</h2>
+
+</section>
+				<section>
+
+<h2 id="la-première-définition">La première définition</h2>
+
+<blockquote>
+<p>&ldquo;The field of study that gives computers the ability to learn without being explicitly programmed&rdquo; (Arthur Samuel, 1959).</p>
+</blockquote>
+
+</section>
+				<section>
+
+<h2 id="des-machines-qui-apprennent">Des machines qui apprennent ?</h2>
+
+<p>Le Machine Learning ou apprentissage automatique regroupe un ensemble de techniques (algorithmes) permettant à des machines de s’entraîner sur des bases d’exemples pour :</p>
+
+<ul>
+<li>Identifier ou catégoriser des éléments</li>
+<li>Détecter des tendances</li>
+<li>Faire des prévisions</li>
+</ul>
+
+<p>Leurs performances s&rsquo;améliorent avec l&rsquo;expérience.</p>
+
+</section>
+				<section>
+
+<section><h2 id="un-nouveau-paradigme">Un nouveau paradigme</h2>
+
+<p class='fragment '
+  >
+  <img src="images/programming_paradigm.png" alt="Programming paradigm" />
+</p>
+
+<p class='fragment '
+  >
+  <img src="images/training_paradigm.png" alt="Training paradigm" />
+</p>
+
+</section>
+				<section>
+
+<p><a href="https://xkcd.com/1838/"><img src="images/machine_learning_xkcd.png" alt="ML on XKCD" /></a></p>
+</section>
+
+</section>
+				<section>
+
+<p><img src="images/ai_ml_dl.png" alt="AI/ML/DL Venn diagram" /></p>
+
+</section>
+				<section>
+
+<h2 id="critères-de-classification">Critères de classification</h2>
+
+<p>Les systèmes de Machine Learning peuvent être catégorisées selon :</p>
+
+<ul>
+<li>Le type de supervision pendant l&rsquo;apprentissage.</li>
+<li>La capacité à apprendre incrémentalement.</li>
+<li>La construction ou non d&rsquo;un modèle pour faire des prédictions.</li>
+</ul>
+
+</section>
+				<section>
+
+<p><img src="images/machine_learning_tree.png" alt="ML category tree" /></p>
+
+</section>
+				<section>
+
+<section><h2 id="apprentissage-supervisé">Apprentissage supervisé</h2>
+
+<p>Les résultats à obtenir sont fournis avec les données d&rsquo;entraînement.</p>
+
+<p>Ces données sont dites <strong>étiquetées</strong> (taguées).</p>
+
+</section>
+				<section>
+
+<h2 id="régression">Régression</h2>
+
+<p>Le système prédit des valeurs <strong>continues</strong>.</p>
+
+<p><img src="images/ml_regression.png" alt="Regression example" /></p>
+
+</section>
+				<section>
+
+<h2 id="classification">Classification</h2>
+
+<p>Le système prédit des valeurs discrètes : il <strong>catégorise</strong> les entrées.</p>
+
+<p><img src="images/ml_classification.png" alt="Classification example" /></p>
+
+</section>
+				<section>
+
+<h2 id="exemples">Exemples</h2>
+
+<ul>
+<li><strong>Régression</strong> : prix d&rsquo;un bien immobilier, prévision de températures, âge d&rsquo;une personne.</li>
+<li><strong>Classification binaire</strong> (0 ou 1) : chat/non chat, spam/non spam, tumeur maligne/bénigne.</li>
+<li><strong>Classification multiclasses</strong> : chat/chien/autre animal, reconnaissance de chiffres, catégorisation de tweets.</li>
+</ul>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="apprentissage-non-supervisé">Apprentissage non supervisé</h2>
+
+<p>Les données sont fournies <strong>sans</strong> les résultats à obtenir.</p>
+
+<p>Le système doit découvrir par lui-même une éventuelle structure dans ces données.</p>
+
+</section>
+				<section>
+
+<h2 id="clustering">Clustering</h2>
+
+<p>Le système <strong>partitionne</strong> les données en groupes.</p>
+
+<p><img src="images/ml_clustering.png" alt="ML clustering example" /></p>
+
+</section>
+				<section>
+
+<h2 id="détection-d-anomalies">Détection d&rsquo;anomalies</h2>
+
+<p>Le système détecte les exemples anormaux (&rdquo;<em>outliers</em>&rdquo;).</p>
+
+<p><img src="images/ml_anomaly_detection.png" alt="ML anomaly detection example" /></p>
+
+</section>
+				<section>
+
+<h2 id="réduction-de-dimensionnalité">Réduction de dimensionnalité</h2>
+
+<p>Le système projette les données dans un espace de moindre dimension.</p>
+
+<p><img src="images/ml_dimensionality_reduction.png" alt="ML dimensionality reduction example" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="apprentissage-par-renforcement">Apprentissage par renforcement</h2>
+
+<p>Les décisions du système lui procurent une <strong>récompense</strong> qu&rsquo;il cherche à maximiser. <div style="position: relative; height: 270px; width: 480px; overflow: hidden; margin: 0 auto 10px;">
+    <iframe src="//www.youtube.com/embed/TmPfTpjtdgg" style="top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+</div>
+      </p>
+
+</section>
+				<section>
+
+<h2 id="apprentissage-batch-vs-online">Apprentissage Batch Vs Online</h2>
+
+<p>Capacité (ou non) du système à apprendre incrémentalement, à partir de nouveaux examples.</p>
+
+
+<figure>
+    
+        <img src="images/batch_online_learning.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://github.com/ageron/handson-ml"> 
+            Extraits du livre Hands-on Machine Learning with Scikit-Learn &amp; TensorFlow par A. Géron
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<h2 id="prédictions-basées-sur-les-exemples-vs-sur-un-modèle">Prédictions basées sur les exemples Vs sur un modèle</h2>
+
+
+<figure>
+    
+        <img src="images/instance_model_learning.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://github.com/ageron/handson-ml"> 
+            Extraits du livre Hands-on Machine Learning with Scikit-Learn &amp; TensorFlow par A. Géron
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<h2 id="anatomie-d-un-système-de-ml-supervisé">Anatomie d&rsquo;un système de ML supervisé</h2>
+
+</section>
+				<section>
+
+<h2 id="les-éléments-d-un-système-de-ml-supervisé">Les éléments d&rsquo;un système de ML supervisé</h2>
+
+<ol>
+<li>Des <strong>données</strong>.</li>
+<li>Un <strong>modèle</strong> capable de transformer les données en résultats.</li>
+<li>Une fonction de <strong>perte</strong> (<em>loss</em>) qui mesure l&rsquo;écart entre les résultats fournis par le modèle et ceux attendus.</li>
+<li>Un <strong>algorithme d&rsquo;optimisation</strong> pour modifier les paramètres du modèle en vue de minimiser sa perte.</li>
+</ol>
+
+</section>
+				<section>
+
+<h2 id="terminologie-et-notation">Terminologie et notation</h2>
+
+<ul>
+<li><strong>Etiquette</strong> (<em>label</em> ou <em>target</em>) : résultat qu&rsquo;on souhaite prédire, noté <code>$ y $</code>.</li>
+<li><strong>Caractéristique</strong> (<em>feature</em>) : propriété d&rsquo;une donnée, notée <code>$ x_i $</code>.</li>
+<li><strong>Exemple</strong> (<em>sample</em>) : instance de donnée particulière comprenant un ensemble de <code>$ n $</code> caractéristiques, notée <code>$ x = \left\{ x_1, x_2, \dotsc, x_n \right\} $</code>.</li>
+<li>Un exemple peut être étiqueté (associé au résultat attendu) ou non.</li>
+</ul>
+
+</section>
+				<section>
+
+<section><h2 id="vectorisation-des-données">Vectorisation des données</h2>
+
+<p>Pour des raisons de performance, les données sont souvent fournies au modèle sous la forme d&rsquo;une <strong>matrice</strong> <em>(samples, features)</em> notée <code>$ X $</code> contenant les <code>$ m $</code> exemples.</p>
+
+<p><code>$$X = \begin{bmatrix}
+       \ x^{(1)}_1 &amp; x^{(1)}_2 &amp; \cdots &amp; x^{(1)}_n \\
+       \ x^{(2)}_1 &amp; x^{(2)}_2 &amp; \cdots &amp; x^{(2)}_n \\
+       \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+       \ x^{(m)}_1 &amp; x^{(m)}_2 &amp; \cdots &amp; x^{(m)}_n
+     \end{bmatrix}\;\;
+y = \begin{pmatrix}
+       \ y^{(1)} \\
+       \ y^{(2)} \\
+       \ \vdots \\
+       \ y^{(m)}
+     \end{pmatrix}$$</code></p>
+
+</section>
+				<section>
+
+<h2 id="exemple-prix-immobiliers">Exemple : prix immobiliers</h2>
+
+<table>
+<thead>
+<tr>
+<th>Surface (m2)</th>
+<th>Nombre chambres</th>
+<th>Age (années)</th>
+<th>Code Postal</th>
+<th>Prix (k€)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>145</td>
+<td>6</td>
+<td>32</td>
+<td>33600</td>
+<td>380</td>
+</tr>
+
+<tr>
+<td>85</td>
+<td>3</td>
+<td>45</td>
+<td>33700</td>
+<td>290</td>
+</tr>
+
+<tr>
+<td>210</td>
+<td>7</td>
+<td>12</td>
+<td>33400</td>
+<td>740</td>
+</tr>
+
+<tr>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+
+<tr>
+<td>110</td>
+<td>4</td>
+<td>22</td>
+<td>33000</td>
+<td>410</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+				<section>
+
+<h2 id="matrice-des-données-d-exemple">Matrice des données d&rsquo;exemple</h2>
+
+<p><img src="images/data_matrix.png" alt="Example data matrix" /></p>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="format-des-données">Format des données</h2>
+
+<ul>
+<li>Cas général : matrice de la forme <em>(samples, features)</em></li>
+<li>Images : tenseur 4D de la forme <em>(samples, height, width, color_channels)</em></li>
+<li>Vidéos : tenseur 5D de la forme <em>(samples, frames, height, width, color_channels)</em></li>
+</ul>
+
+<p>Elles doivent être fournies au modèle sous forme numérique. En fonction du modèle utilisé, une étape préalable de <strong>vectorisation</strong> peut s&rsquo;avérer nécessaire.</p>
+
+</section>
+				<section>
+
+<p><img src="images/image2vector.jpeg" alt="Image to vector" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="rôle-du-modèle">Rôle du modèle</h2>
+
+<ul>
+<li>Il définit la relation entre les caractéristiques et l&rsquo;étiquette.</li>
+<li>Il est constitué de <strong>paramètres</strong>, représentés sous forme d&rsquo;un vecteur noté <code>$ \theta $</code>.</li>
+<li>Son résultat calculé est noté <code>$ y' $</code> ou <code>$ \hat{y} $</code>.</li>
+</ul>
+
+<p><code>$$y' = \begin{pmatrix}
+       \ y'^{(1)} \\
+       \ y'^{(2)} \\
+       \ \vdots \\
+       \ y'^{(m)}
+     \end{pmatrix}$$</code></p>
+
+</section>
+				<section>
+
+<h2 id="cycle-de-vie-du-modèle">Cycle de vie du modèle</h2>
+
+<p>On distingue deux phases (répétables).</p>
+
+<ul>
+<li><strong>Apprentissage</strong> : à partir des exemples qu&rsquo;on lui présente, le modèle apprend progressivement les relations entre les caractéristiques et l&rsquo;étiquette.</li>
+<li><strong>Inférence</strong> : on utilise le modèle entraîné pour faire des prédictions.</li>
+</ul>
+
+</section>
+				<section>
+
+<section><h2 id="la-fonction-de-perte-loss">La fonction de perte (<em>loss</em>)</h2>
+
+<ul>
+<li>Elle mesure l&rsquo;écart entre les résultats attendus, souvent appelés <em>ground truth</em>, et ceux calculés par le modèle.</li>
+<li>Pour un <em>dataset</em> donné, elle est uniquement fonction des paramètres du modèle.</li>
+<li>Son choix dépend du type d&rsquo;apprentissage.</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="fonctions-de-perte-pour-la-régression">Fonctions de perte pour la régression</h2>
+
+<ul>
+<li><em>Mean Absolute Error</em> (MAE, aka <em>L1 loss</em>) : <code>$\mathcal{L}(\theta) = \frac{1}{m}\sum_{i=1}^m |y'^{(i)} - y^{(i)}|$</code></li>
+<li><em>Mean Squared Error</em> (MSE, aka <em>L2 loss</em>) : <code>$\mathcal{L}(\theta) = \frac{1}{m}\sum_{i=1}^m (y'^{(i)} - y^{(i)})^2$</code></li>
+<li><em>Root Mean Squared Error</em> (RMSE) : <code>$\mathcal{L}(\theta) = \sqrt{\frac{1}{m}\sum_{i=1}^m (y'^{(i)} - y^{(i)})^2}$</code></li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="fonction-de-perte-pour-la-classification-binaire">Fonction de perte pour la classification binaire</h2>
+
+<ul>
+<li>La valeur attendue <code>$ y^{(i)} $</code> vaut soit 0, soit 1.</li>
+<li>Le résultat calculé <code>$ y'^{(i)} $</code> correspond à une probabilité (valeur entre 0 et 1).</li>
+</ul>
+
+<p><em>Binary Crossentropy</em> : <code>$$\mathcal{L}(\theta) = -\frac{1}{m}\sum_{i=1}^m \left[y^{(i)} \log(y'^{(i)}) + (1-y^{(i)}) \log(1-y'^{(i)})\right]$$</code></p>
+
+</section>
+				<section>
+
+<h2 id="classification-multiclasses">Classification multiclasses</h2>
+
+<ul>
+<li><code>$ y^{(i)} $</code> et <code>$ y'^{(i)} $</code> sont des vecteurs. Leur nombre d&rsquo;éléments est égal au nombre de classes <code>$ K $</code>.</li>
+<li><code>$ y^{(i)}_k $</code> vaut 1 si la classe du ième exemple est <code>$ k $</code>, 0 sinon.</li>
+<li><code>$ y'^{(i)} $</code> est un vecteur de probabilités.</li>
+</ul>
+
+<p><code>$$y = \begin{bmatrix}
+       \ y^{(1)}_1 &amp; \cdots &amp; y^{(1)}_K \\
+       \ y^{(2)}_1 &amp; \cdots &amp; y^{(2)}_K \\
+       \ \vdots &amp; \ddots &amp; \vdots \\
+       \ y^{(m)}_1 &amp; \cdots &amp; y^{(m)}_K
+     \end{bmatrix}\;\;
+y' = \begin{bmatrix}
+       \ y'^{(1)}_1 &amp; \cdots &amp; y'^{(1)}_K \\
+       \ y'^{(2)}_1 &amp; \cdots &amp; y'^{(2)}_K \\
+       \ \vdots &amp; \ddots &amp; \vdots \\
+       \ y'^{(m)}_1 &amp; \cdots &amp; y'^{(m)}_K
+     \end{bmatrix}$$</code></p>
+
+</section>
+				<section>
+
+<h2 id="fonction-de-perte-pour-la-classification-multiclasses">Fonction de perte pour la classification multiclasses</h2>
+
+<p><em>Categorical Crossentropy</em> : <code>$$\mathcal{L}(\theta) = -\frac{1}{m}\sum_{i=1}^m\sum_{k=1}^K y^{(i)}_k \log(y'^{(i)}_k)$$</code></p>
+
+<p>(équivaut à la <em>Binary Crossentropy</em> quand <code>$ K = 2 $</code>)</p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="algorithme-d-optimisation-du-modèle">Algorithme d&rsquo;optimisation du modèle</h2>
+
+<ul>
+<li>Il correspond à la phase d&rsquo;apprentissage.</li>
+<li>Son objectif : minimiser la perte.</li>
+</ul>
+
+
+<figure>
+    
+        <img src="images/LossSideBySide.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach"> 
+            Extrait du cours d&#39;introduction au Machine Learning de Google
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<h2 id="une-approche-itérative">Une approche itérative</h2>
+
+<p>Les paramètres du modèle sont mis à jour itérativement jusqu&rsquo;à atteindre un optimum.</p>
+
+
+<figure>
+    
+        <img src="images/GradientDescentDiagram.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss"> 
+            Extrait du cours d&#39;introduction au Machine Learning de Google
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<section><h2 id="la-descente-de-gradient">La descente de gradient</h2>
+
+<ul>
+<li>Utilisée pour optimiser plusieurs modèles de ML, dont les réseaux de neurones.</li>
+<li>Principe : mettre à jour les paramètres du modèle par petites étapes dans la direction inverse du <strong>gradient</strong> de la fonction de perte, jusqu&rsquo;à converger vers un minimum de cette fonction.</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="la-notion-de-gradient">La notion de gradient</h2>
+
+<ul>
+<li>Variation d&rsquo;une fonction par rapport à la variation de ses différents paramètres.</li>
+<li>Vecteur dont les composantes sont les dérivées partielles de la fonction par rapport à chacun de ses <code>$ n $</code> paramètres.</li>
+</ul>
+
+<p><code>$$\nabla_{\theta}\mathcal{L}(\theta) = \begin{pmatrix}
+       \ \frac{\partial}{\partial \theta_1} \mathcal{L}(\theta) \\
+       \ \frac{\partial}{\partial \theta_2} \mathcal{L}(\theta) \\
+       \ \vdots \\
+       \ \frac{\partial}{\partial \theta_n} \mathcal{L}(\theta)
+     \end{pmatrix}$$</code></p>
+
+</section>
+				<section>
+
+<h2 id="descente-de-gradient-avec-un-seul-paramètre">Descente de gradient avec un seul paramètre</h2>
+
+<p><img src="images/gradient_descent_1parameter.png" alt="Gradient Descent" /></p>
+
+</section>
+				<section>
+
+<h2 id="gradient-pour-deux-paramètres">Gradient pour deux paramètres</h2>
+
+<p><img src="images/tangent_space.png" alt="Tangent Space" /></p>
+
+</section>
+				<section>
+
+<h2 id="descente-de-gradient-avec-deux-paramètres">Descente de gradient avec deux paramètres</h2>
+
+<p><img src="images/gradient_descent_2parameters.gif" alt="Gradient Descent" /></p>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="types-de-descentes-de-gradient">Types de descentes de gradient</h2>
+
+<ul>
+<li><em>Batch Gradient Descent</em></li>
+<li><em>Stochastic Gradient Descent</em></li>
+<li><em>Mini-Batch SGD</em></li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="batch-gradient-descent">Batch Gradient Descent</h2>
+
+<p>Gradient calculé sur l&rsquo;ensemble des données avant mise à jour des paramètres.</p>
+
+<ul>
+<li>Avantage : simple et sûr</li>
+<li>Inconvénient : lent voire inutilisable pour de gros volumes de données</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="stochastic-gradient-descent">Stochastic Gradient Descent</h2>
+
+<p>Gradient calculé sur une seule donnée prise au hasard avant mise à jour des paramètres.</p>
+
+<ul>
+<li>Avantages :
+
+<ul>
+<li>Rapide</li>
+<li>Autorise l&rsquo;apprentissage à partir de nouveaux exemples (<em>online learning</em>)</li>
+</ul></li>
+<li>Inconvénients :
+
+<ul>
+<li>Risque de ne pas converger</li>
+<li>Pas de vectorisation des calculs</li>
+</ul></li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="mini-batch-sgd">Mini-Batch SGD</h2>
+
+<p>Gradient calculé sur une petite quantité de données prise au hasard avant mise à jour des paramètres.</p>
+
+<ul>
+<li>Combine les avantages des deux précédents</li>
+<li>Méthode par défaut pour de nombreuses librairies de ML</li>
+</ul>
+
+<p>Echelle de taille du mini-batch : entre 10 et 1000 examples.</p>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="ajustement-des-paramètres-du-modèle">Ajustement des paramètres du modèle</h2>
+
+<p>Taux d&rsquo;apprentissage ou <strong><em>learning rate</em></strong> <code>$ \eta $</code> : facteur d&rsquo;ajustement des paramètres en fonction du gradient de la fonction de perte.</p>
+
+<p><code>$$\theta_{next} = \theta - \eta\nabla_{\theta}\mathcal{L}(\theta)$$</code></p>
+
+</section>
+				<section>
+
+<h2 id="importance-du-learning-rate">Importance du learning rate</h2>
+
+<p><img src="images/learning_rate.png" alt="Learning rate" /></p>
+
+<p><a href="https://developers.google.com/machine-learning/crash-course/fitter/graph">Exercice interactif</a></p>
+
+</section>
+				<section>
+
+<h2 id="le-problème-des-minima-locaux">Le problème des minima locaux</h2>
+
+<p><img src="images/local_minima.jpg" alt="Local minima" /></p>
+
+</section>
+				<section>
+
+<p><img src="images/gd_ng.jpg" alt="Gradient Descent" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="les-étapes-d-un-projet-de-ml">Les étapes d&rsquo;un projet de ML</h2>
+
+</section>
+				<section>
+
+<h2 id="démarche-générale">Démarche générale</h2>
+
+<ol>
+<li>Cadrer le problème</li>
+<li>Analyser et préparer les données</li>
+<li>Sélectionner et entraîner un modèle</li>
+<li>Affiner le modèle</li>
+<li>Mettre le modèle en production</li>
+</ol>
+
+</section>
+				<section>
+
+<h2 id="1-cadrer-le-problème">1. Cadrer le problème</h2>
+
+<ul>
+<li>Quel est l&rsquo;objectif métier ?</li>
+<li>Quelles sont les solutions actuelles ?</li>
+<li>Quelles sont les données à disposition ?</li>
+<li>Le problème à résoudre est-il adapté au ML ?</li>
+<li>Quel est le type d&rsquo;apprentissage envisagé (supervisé/non supervisé, batch/online, etc) ?</li>
+<li>Comment évaluer la performance du modèle ?</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="problèmes-bien-adaptés-au-ml">Problèmes bien adaptés au ML</h2>
+
+<ul>
+<li>Règles d&rsquo;action difficiles à décrire ou à codifier</li>
+<li>Données complexes pour les méthodes analytiques traditionnelles :
+
+<ul>
+<li>Nombre de caractéristiques très important</li>
+<li>Données fortement corrélées</li>
+</ul></li>
+<li>Performance &gt; explicabilité</li>
+</ul>
+
+</section>
+				<section>
+
+<section><h2 id="mesures-de-performance-pour-la-classification">Mesures de performance pour la classification</h2>
+
+<p>Afin de pouvoir réaliser des prédictions, les probabilités calculées par le modèle sont transformées en valeurs discrètes grâce à des seuils.</p>
+
+<p>Mesure standard : <strong>justesse</strong> (<em>accuracy</em>).</p>
+
+<p><code>$$\text{Justesse} = \frac{\text{Nombre de prédictions exactes}}{\text{Nombre total de prédictions}} $$</code></p>
+
+</section>
+				<section>
+
+<h2 id="faux-positifs-faux-négatifs">Faux positifs, faux négatifs</h2>
+
+<ul>
+<li>Contexte : un berger qui crie &ldquo;Au loup !&rdquo;.</li>
+<li>&ldquo;Présence d&rsquo;un loup&rdquo; = classe positive, &ldquo;Absence de loup&rdquo; = classe négative.</li>
+</ul>
+
+<figure>
+    
+        <img src="images/falsepos_falseneg.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://developers.google.com/machine-learning/crash-course/classification/true-false-positive-negative"> 
+            Matrice de confusion extraite du cours d&#39;introduction au Machine Learning de Google
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<h2 id="limites-de-la-justesse-en-présence-de-classes-déséquilibrées">Limites de la justesse en présence de classes déséquilibrées</h2>
+
+<p><img src="images/accuracy_shortcomings.png" alt="Accuracy shortcomings" /></p>
+
+<p><code>$\text{Justesse} = \frac{VP + VN}{VP + VN + FP + FN} = 91\%$</code></p>
+
+<p>Mais 1 seule tumeur maligne détectée sur 9 !</p>
+
+</section>
+				<section>
+
+<h2 id="précision-et-rappel">Précision et rappel</h2>
+
+<ul>
+<li>La <strong>précision</strong> mesure la proportion d&rsquo;identifications positives correctes.</li>
+<li>Le <strong>rappel</strong> (<em>recall</em>) mesure la proportion de résultats positifs réels identifiés correctement.</li>
+</ul>
+
+<p><code>$$\text{Précision} = \frac{VP}{VP + FP}\;\;\;\;
+\text{Rappel} = \frac{VP}{VP + FN}$$</code></p>
+
+<p>Précision et rappel sont souvent en tension.</p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="2-analyser-et-préparer-les-données">2. Analyser et préparer les données</h2>
+
+<p>La qualité des données est <strong>fondamentale</strong> pour le succès d&rsquo;un système de ML.</p>
+
+<p><img src="images/yourdata_yourmodel.png" alt="Your data, your model" /></p>
+
+</section>
+				<section>
+
+<h2 id="opérations-sur-les-données">Opérations sur les données</h2>
+
+<ul>
+<li><strong>Explorer</strong> et <strong>visualiser</strong> les données est essentiel pour mieux appréhender le problème.</li>
+<li>Afin de mieux valider le modèle, on sépare toujours les données en plusieurs <strong>groupes</strong>.</li>
+<li>Les données réelles, souvent incomplètes ou bruitées, doivent être <strong>nettoyées</strong>, <strong>formatées</strong> et éventuellement <strong>enrichies</strong> avant d&rsquo;être utilisables.</li>
+</ul>
+
+</section>
+				<section>
+
+
+<figure>
+    
+        <img src="images/data_viz.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://www.kaggle.com/unsdsn/world-happiness#2017.csv"> 
+            Histogramme des valeurs des caractéristiques pour le jeu de données World Happiness 2017
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<section><h2 id="entrainement-validation-et-test">Entrainement, validation et test</h2>
+
+<p>La capacité d&rsquo;un modèle entraîné à <strong>généraliser</strong> (être performant avec des données inconnues) est essentielle.</p>
+
+<p>Afin de garantir cette capacité, les données sont partitionnées en 2 ou 3 groupes (<em>sets</em>) :</p>
+
+<ul>
+<li><strong>Entraînement</strong> : pour la phase d&rsquo;apprentissage (entre 60 et 98% des données).</li>
+<li><strong>Validation</strong> : pour affiner le modèle.</li>
+<li><strong>Test</strong> : pour vérifier les performances du modèle.</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="exemples-de-partitions-des-données">Exemples de partitions des données</h2>
+
+<pre><code class="language-python"># Assuming x is a (1000, features_count) matrix
+
+# Randomize samples order
+np.random.shuffle(x)
+
+training_x, val_x, test_x = x[:800, :], x[800:900, :], x[900:, :]
+# training_x is a (800, features_count) matrix
+# val_x and test_x both are (100, features_count) matrices
+</code></pre>
+
+<pre><code class="language-python">from sklearn.model_selection import train_test_split
+
+# Using sk-learn's predefined function train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="k-fold-cross-validation">K-fold Cross Validation</h2>
+
+<p>Utilisée quand les données sont trop peu nombreuses pour créer un <em>validation set</em> significatif.</p>
+
+<p><img src="images/k-fold-cross-validation.png" alt="K-fold Cross Validation" /></p>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="nettoyage-et-formatage-des-données">Nettoyage et formatage des données</h2>
+
+<p>Nécessaire avant de fournir les données au modèle.</p>
+
+<ul>
+<li>Suppression des caractéristiques superflues.</li>
+<li>Ajout des valeurs manquantes.</li>
+<li>Conversion sous forme numérique.</li>
+<li>Normalisation.</li>
+<li>Etiquetage si besoin.</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="normalisation-des-données">Normalisation des données</h2>
+
+<p>Afin de faciliter l&rsquo;apprentissage, les données doivent :</p>
+
+<ul>
+<li>Etre homogènes</li>
+<li>Avoir de faibles valeurs</li>
+</ul>
+
+<pre><code class="language-python"># Assuming x is a (samples, features) matrix
+x -= x.mean(axis=0)  # center data
+x /= x.std(axis=0)  # reduce data
+# x now has a mean of 0 and a standard deviation of 1
+</code></pre>
+</section>
+
+</section>
+				<section>
+
+<h2 id="enrichissement-du-dataset">Enrichissement du dataset</h2>
+
+<ul>
+<li>Nouvelles caractéristiques (<em>feature engineering</em>).</li>
+<li>Nouveaux exemples (<em>data augmentation</em>).</li>
+</ul>
+
+<p><img src="images/data_augmentation.png" alt="Data Augmentation" /></p>
+
+</section>
+				<section>
+
+<h2 id="3-sélectionner-et-entraîner-un-modèle">3. Sélectionner et entraîner un modèle</h2>
+
+<ul>
+<li>Le choix d&rsquo;un modèle dépend du type d&rsquo;apprentissage (supervisé/non supervisé, etc).</li>
+<li>Pour chaque type, il existe plusieurs modèles de ML, plus ou moins complexes (k-NN, régression linéaire ou logistique, réseaux de neurones, etc).</li>
+<li>Il est conseillé de commencer avec un modèle basique et rapide à entraîner :
+
+<ul>
+<li>Utile comme base d&rsquo;évaluation.</li>
+<li>Peut se révéler performant.</li>
+</ul></li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="les-hyperparamètres">Les hyperparamètres</h2>
+
+<ul>
+<li>Ce sont les paramètres du modèle définis par l&rsquo;utilisateur.</li>
+<li><code>$ \neq $</code> paramètres (modifiés automatiquement pendant l&rsquo;apprentissage).</li>
+<li>Exemples : <em>learning rate</em>, taille du mini-batch, nombre de couches pour un réseau de neurones, etc.</li>
+<li>Leur modification impacte les résultats du modèle.</li>
+<li>Objectif : trouver la meilleure combinaison possible.</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="l-entraînement-du-modèle">L&rsquo;entraînement du modèle</h2>
+
+<ul>
+<li>Phase empirique et itérative.</li>
+<li>Objectif : obtenir un modèle qui <em>overfitte</em> les données d&rsquo;entraînement.</li>
+</ul>
+
+<p><img src="images/busy_training.jpg" alt="Busy training" /></p>
+
+</section>
+				<section>
+
+<section><h2 id="optimisation-généralisation">Optimisation/généralisation</h2>
+
+<p><img src="images/underfitting_overfitting.png" alt="Underfitting and overfitting" /></p>
+
+</section>
+				<section>
+
+<h2 id="biais-et-variance">Biais et variance</h2>
+
+<ul>
+<li><em>Underfitting</em> (biais). Sous-performance sur les données d&rsquo;entrainement.</li>
+<li><em>Overfitting</em> (variance). Ecart entre les performances sur les données d&rsquo;entrainement et de validation.</li>
+</ul>
+
+</section>
+				<section>
+
+<p><img src="images/overfitting_example.png" alt="Overfitting example" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="4-affiner-le-modèle">4. Affiner le modèle</h2>
+
+<ul>
+<li>Phase empirique et itérative, basée sur les résultats de validation.</li>
+<li>Objectif : concilier optimisation et généralisation.</li>
+<li>Une visualisation graphique des résultats est précieuse.</li>
+<li>En partie automatisable avec certaines librairies de ML.</li>
+<li>Ne pas utiliser le jeu de données de test !</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="5-mettre-le-modèle-en-production">5. Mettre le modèle en production</h2>
+
+<ul>
+<li>Le modèle entraîné puis affiné peut être sauvegardé sous différents formats.</li>
+<li>On peut ensuite le déployer sur une machine dédiée, un serveur web (accès via une API) ou sur un terminal mobile type smartphone.</li>
+<li>Il peut être intégré à un système plus important qui utilise ses services.</li>
+</ul>
+</section>
+				</div>
+	</div>
+	<div>
+		<a href="https://ensc.bordeaux-inp.fr">
+			<img src="https://www.bpesquet.fr/images/ENSC.jpg" style="position: absolute;
+						bottom: 10px;
+						left: 10px;" />
+		</a>
+	</div>
+
+	<script src="https://www.bpesquet.fr/reveal.js/lib/js/head.min.js"></script>
+	<script src="https://www.bpesquet.fr/reveal.js/js/reveal.js"></script>
+
+	<script>
+		
+		
+		
+		Reveal.initialize({
+			
+			history: false,
+			
+			slideNumber: true,
+			
+			transition: "convex",
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-MML-AM_HTMLorMML'  
+			},
+			dependencies: [
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/marked.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/markdown.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/notes\/notes.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/zoom-js\/zoom.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/highlight\/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/math\/math.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>

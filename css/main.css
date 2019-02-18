@@ -1,0 +1,111 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  padding-top: 55px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+main {
+  margin: auto;
+  padding: 25px;
+  flex: 1 0 auto;
+}
+
+/*footer*/
+
+.copyright {
+  margin: 15px 0;
+}
+
+/*home page*/
+
+.intro {
+  transform: translateY(10vh);
+}
+
+.intro > h1 {
+  color: #212121;
+  font-size: 7vh;
+}
+
+.intro > h2 {
+  color: #757575;
+  font-size: 5vh;
+}
+
+.intro > .profile {
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+}
+
+/*apply accent colour to links*/
+
+a:not(#calltoaction):link,
+a:not(#calltoaction):visited {
+  color: var(--accent);
+}
+
+a:not(#calltoaction).icon:hover {
+  text-decoration: none;
+}
+
+a:not(#calltoaction):hover {
+  color: var(--accent) !important;
+}
+
+/*paginator at bottom of list view*/
+
+.pages {
+  padding: 15px 0;
+}
+
+.pages-icon {
+  padding: 0 15px;
+}
+
+/*list item for posts and projects*/
+
+.item-tag {
+  background-color: var(--accent);
+}
+
+/*navigation bar icons*/
+
+.navbar-icon {
+  font-size: 125%;
+  display: inline-block !important;
+}
+
+/*coloured borders at top and bottom of the page*/
+
+.navbar.navbar-default {
+  border-top: var(--border-width) solid var(--accent);
+}
+
+footer {
+  border-bottom: var(--border-width) solid var(--accent);
+}
+
+img {
+  max-width: 100%;
+}
+
+img[src$="#center"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.single-info {
+  padding-bottom: 10px;
+}
+
+figure {
+  text-align: center;
+}

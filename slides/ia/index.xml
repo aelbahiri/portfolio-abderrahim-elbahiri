@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Intelligence artificielle on Baptiste Pesquet</title>
+    <link>https://www.bpesquet.fr/slides/ia/</link>
+    <description>Recent content in Intelligence artificielle on Baptiste Pesquet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 04 Oct 2018 09:48:50 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.bpesquet.fr/slides/ia/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Panorama de l&#39;IA</title>
+      <link>https://www.bpesquet.fr/slides/ia/panorama/</link>
+      <pubDate>Wed, 30 May 2018 22:15:13 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/slides/ia/panorama/</guid>
+      <description>Sommaire  Qu&amp;rsquo;est-ce que l&amp;rsquo;IA ? Histoire de l&amp;rsquo;IA Principaux domaines d&amp;rsquo;étude Avancées récentes Les enjeux de l&amp;rsquo;IA Quel futur pour l&amp;rsquo;IA ?  Qu&amp;rsquo;est-ce que l&amp;rsquo;IA ? Tentative de définition  &amp;ldquo;L&amp;rsquo;IA consiste à parvenir à faire faire aux machines ce que l’homme fait aujourd’hui mieux qu’elles, notamment s’adapter, apprendre, communiquer et interagir d’une manière riche et variée avec leur environnement.&amp;rdquo; (FranceIA)
+ L&amp;rsquo;IA, interdisciplinaire par nature    Schéma : D.</description>
+    </item>
+    
+    <item>
+      <title>Python et la Data Science</title>
+      <link>https://www.bpesquet.fr/slides/ia/python-data-science/</link>
+      <pubDate>Thu, 31 May 2018 21:59:13 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/slides/ia/python-data-science/</guid>
+      <description>Sommaire  Introduction à la Data Science Pourquoi Python ? Outils Python pour la Data Science  Installation simplifiée avec Anaconda Partage de code avec Jupyter Notebook Calcul mathématique avec NumPy Analyse de données avec Pandas Création de graphiques avec Matplotlib/Seaborn   Introduction à la Data Science Qu&amp;rsquo;est-ce que la Data Science ?  Objectif général : extraire de la connaissance à partir de données. Expression popularisée à partir de 1997 par certains statisticiens.</description>
+    </item>
+    
+    <item>
+      <title>Les fondamentaux du Machine Learning</title>
+      <link>https://www.bpesquet.fr/slides/ia/fondamentaux-ml/</link>
+      <pubDate>Thu, 31 May 2018 09:15:13 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/slides/ia/fondamentaux-ml/</guid>
+      <description>Sommaire  Introduction au Machine Learning Anatomie d&amp;rsquo;un système de ML supervisé Les étapes d&amp;rsquo;un projet de ML  Introduction au Machine Learning La première définition  &amp;ldquo;The field of study that gives computers the ability to learn without being explicitly programmed&amp;rdquo; (Arthur Samuel, 1959).
+ Des machines qui apprennent ? Le Machine Learning ou apprentissage automatique regroupe un ensemble de techniques (algorithmes) permettant à des machines de s’entraîner sur des bases d’exemples pour :</description>
+    </item>
+    
+    <item>
+      <title>Les réseaux de neurones artificiels</title>
+      <link>https://www.bpesquet.fr/slides/ia/reseaux-neurones/</link>
+      <pubDate>Thu, 31 May 2018 09:45:13 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/slides/ia/reseaux-neurones/</guid>
+      <description>Sommaire  A la découverte des réseaux de neurones Premiers pas avec Keras Tuning d&amp;rsquo;un réseau de neurones  A la découverte des réseaux de neurones Les origines  1943 : premier modèle mathématique du neurone biologique (McCulloch et Pitts) 1949 : règle de Hebb 1958 : le perceptron (F. Rosenblatt) 1969 : limites des perceptrons (M. Minsky)  L&amp;rsquo;inspiration biologique Le neurone formel de McCulloch et Pitts La règle de Hebb Postulat sur l&amp;rsquo;importance des synapses entre neurones pour l&amp;rsquo;apprentissage.</description>
+    </item>
+    
+    <item>
+      <title>Les réseaux de neurones à convolution (CNN)</title>
+      <link>https://www.bpesquet.fr/slides/ia/reseaux-convolutifs/</link>
+      <pubDate>Thu, 17 Jan 2019 00:02:17 +0100</pubDate>
+      
+      <guid>https://www.bpesquet.fr/slides/ia/reseaux-convolutifs/</guid>
+      <description>Sommaire  Principe de fonctionnement Histoire des CNN Mise en oeuvre avec Keras  Principe de fonctionnement Justification Le monde visuel se caractérise par :
+ Une invariance par translation Des relations hiérarchiques de type tout/partie  Les modèles classiques sont incapables de détecter des patterns locaux dans une image.
+Architecture générale    Extrait du cours d&amp;#39;introduction au Machine Learning de Google    L&amp;rsquo;opération de convolution Application d&amp;rsquo;un filtre ou kernel à des données pour produire un résultat (feature map).</description>
+    </item>
+    
+  </channel>
+</rss>

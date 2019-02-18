@@ -1,0 +1,617 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Création d&#39;interfaces utilisateur avec React Native</title>
+
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/theme/white.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/lib/css/zenburn.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/css/reveal.css">
+
+	
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/pdf.css' : 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+    <h1>Création d&#39;interfaces utilisateur avec React Native</h1>
+
+    <p><a href="https://ensc.bordeaux-inp.fr">Ecole Nationale Supérieure de Cognitique</a></p>
+
+    <p><a href="https://www.bpesquet.fr">Baptiste Pesquet</a></p>
+
+    
+    
+    
+</section>
+
+			<section>
+
+<h2 id="sommaire">Sommaire</h2>
+
+<ul>
+<li>Les composants</li>
+<li>Navigation entre vues</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="les-composants">Les composants</h2>
+
+</section>
+				<section>
+
+<section><h2 id="la-notion-de-composant">La notion de composant</h2>
+
+<p>Les <strong>composants</strong> sont les blocs de base d&rsquo;une application React (Native).</p>
+
+<p>Ils permettent de créer une UI sous forme <strong>déclarative</strong> par assemblage de composants.</p>
+
+</section>
+				<section>
+
+<h2 id="propriétés-d-un-composant">Propriétés d&rsquo;un composant</h2>
+
+<ul>
+<li>Caractéristiques définies au moment de la création.</li>
+<li>Modifiables uniquement par le composant parent.</li>
+</ul>
+
+<pre><code class="language-jsx">import React, { Component } from 'react';
+import { Text, View } from 'react-native';
+
+class Greeting extends Component {
+  render() {
+    return &lt;Text&gt;Hello {this.props.name}!&lt;/Text&gt;;
+  }
+}
+
+export default class LotsOfGreetings extends Component {
+  render() {
+    return (
+      &lt;View style={{ alignItems: &quot;center&quot; }}&gt;
+        &lt;Greeting name=&quot;John&quot; /&gt;
+        &lt;Greeting name=&quot;Paul&quot; /&gt;
+        &lt;Greeting name=&quot;Jones&quot; /&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="etat-d-un-composant">Etat d&rsquo;un composant</h2>
+
+<ul>
+<li>Etat interne (données) d&rsquo;un composant, susceptible de changer au cours du temps (mutable).</li>
+<li>Modifié uniquement via <code>setState()</code>.</li>
+</ul>
+
+<pre><code class="language-jsx">import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+    setInterval(() =&gt; {
+      this.setState({ count: this.state.count + 1 });
+    }, 1000);
+  }
+
+  render() {
+    const { count } = this.state;
+    const { color, size } = this.props;
+
+    return &lt;Text style={{ color, fontSize: size }}&gt;{count}&lt;/Text&gt;;
+  }
+}
+
+export default class CounterApp extends Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Counter color={&quot;red&quot;} size={30} /&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: &quot;#fff&quot;,
+    alignItems: &quot;center&quot;,
+    justifyContent: &quot;center&quot;
+  }
+});
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="composants-de-base">Composants de base</h2>
+
+<p><img src="images/basic_components.png" alt="React Native core components" /></p>
+
+</section>
+				<section>
+
+<h2 id="composants-d-interface-utilisateur">Composants d&rsquo;interface utilisateur</h2>
+
+<p><img src="images/ui_components.png" alt="React native UI components" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="jsx">JSX</h2>
+
+<p>Syntaxe introduite pour le framework web <a href="https://reactjs.org/">React</a></p>
+
+<pre><code class="language-jsx">const a = &lt;View /&gt;
+const b = (
+  &lt;View
+    foo='hello'
+    bar={baz}&gt;
+    &lt;Text&gt;42&lt;/Text&gt;
+  &lt;/View&gt;
+)
+</code></pre>
+
+<pre><code class="language-js">var a = React.createElement(View, null);
+var b = React.createElement(
+  View,
+  {
+    foo: &quot;hello&quot;,
+    bar: baz
+  },
+  React.createElement(Text, null, &quot;42&quot;)
+);
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="gestion-du-style">Gestion du style</h2>
+
+<ul>
+<li>Défini via la propriété <code>style</code> pour les composants de base.</li>
+<li>Semblable à CSS avec nommage camelCase.</li>
+</ul>
+
+<pre><code class="language-jsx">import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+const styles = StyleSheet.create({
+  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  red: {
+    color: 'red',
+  },
+});
+
+export default class LotsOfStyles extends Component {
+  render() {
+    return (
+      &lt;View&gt;
+        &lt;Text style={styles.red}&gt;just red&lt;/Text&gt;
+        &lt;Text style={styles.bigblue}&gt;just bigblue&lt;/Text&gt;
+        &lt;Text style={[styles.bigblue, styles.red]}&gt;bigblue, then red&lt;/Text&gt;
+        &lt;Text style={[styles.red, styles.bigblue]}&gt;red, then bigblue&lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+</code></pre>
+
+</section>
+				<section>
+
+<section><h2 id="gestion-des-dimensions">Gestion des dimensions</h2>
+
+<p>Deux possibilités :</p>
+
+<ul>
+<li>Dimensions fixes</li>
+<li>Dimensions flexibles</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="dimensions-fixes">Dimensions fixes</h2>
+
+<p>Utile pour les composants qui doivent toujours être affichés à la même taille.</p>
+
+<pre><code class="language-jsx">import React, { Component } from 'react';
+import { View } from 'react-native';
+
+export default class FixedDimensionsBasics extends Component {
+  render() {
+    return (
+      &lt;View&gt;
+        &lt;View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} /&gt;
+        &lt;View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} /&gt;
+        &lt;View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} /&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="dimensions-flexibles">Dimensions flexibles</h2>
+
+<ul>
+<li>Les dimensions s&rsquo;adaptent à l&rsquo;espace disponible</li>
+<li><code>flex:1</code> =&gt; espace partagé équitablement entre tous les composants d&rsquo;un même parent</li>
+</ul>
+
+<pre><code class="language-jsx">import React, { Component } from 'react';
+import { View } from 'react-native';
+
+export default class FlexDimensionsBasics extends Component {
+  render() {
+    return (
+      // Try removing the `flex: 1` on the parent View.
+      // The parent will not have dimensions, so the children can't expand.
+      // What if you add `height: 300` instead of `flex: 1`?
+      &lt;View style={{flex: 1}}&gt;
+        &lt;View style={{flex: 1, backgroundColor: 'powderblue'}} /&gt;
+        &lt;View style={{flex: 2, backgroundColor: 'skyblue'}} /&gt;
+        &lt;View style={{flex: 3, backgroundColor: 'steelblue'}} /&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+</code></pre>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="flexbox">Flexbox</h2>
+
+<ul>
+<li>Mode de mise en page pour les éléments situés à l&rsquo;intérieur d&rsquo;un conteneur.</li>
+<li>Objectif : répartir au mieux l&rsquo;espace disponible.</li>
+</ul>
+
+<p><img src="images/flexbox_terminology.png" alt="Flexbox terminology" /></p>
+
+</section>
+				<section>
+
+<h2 id="flex-direction">Flex Direction</h2>
+
+<p>Définit la direction du flux d&rsquo;éléments dans le conteneur</p>
+
+<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><img src="images/flexbox_flex_direction.png" alt="Flex direction" /></a></p>
+
+</section>
+				<section>
+
+<h2 id="justify-content">Justify Content</h2>
+
+<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><img src="images/flexbox_justify_content.png" alt="Flexbox: justify content" /></a></p>
+
+</section>
+				<section>
+
+<h2 id="align-items">Align Items</h2>
+
+<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><img src="images/flexbox_align_items.png" alt="Flexbox: align Items" /></a></p>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="gestion-du-positionnement">Gestion du positionnement</h2>
+
+<p>Flex direction par défaut : <code>column</code>.</p>
+
+<pre><code class="language-jsx">import React, { Component } from 'react';
+import { View } from 'react-native';
+
+export default class FlexDirectionBasics extends Component {
+  render() {
+    return (
+      // Try setting `flexDirection` to `column`.
+      &lt;View style={{flex: 1, flexDirection: 'row'}}&gt;
+        &lt;View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} /&gt;
+        &lt;View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} /&gt;
+        &lt;View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} /&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="justifycontent"><code>justifyContent</code></h2>
+
+<p>Gère la répartition sur l&rsquo;axe principal (<em>main axis</em>).</p>
+
+<pre><code class="language-jsx">import React, { Component } from 'react';
+import { View } from 'react-native';
+
+export default class JustifyContentBasics extends Component {
+  render() {
+    return (
+      // Try setting `justifyContent` to `center`.
+      // Try setting `flexDirection` to `row`.
+      &lt;View style={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}&gt;
+        &lt;View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} /&gt;
+        &lt;View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} /&gt;
+        &lt;View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} /&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="alignitems"><code>alignItems</code></h2>
+
+<p>Gère la répartition sur l&rsquo;axe secondaire (<em>cross axis</em>).</p>
+
+<pre><code class="language-jsx">import React, { Component } from 'react';
+import { View } from 'react-native';
+
+export default class AlignItemsBasics extends Component {
+  render() {
+    return (
+      // Try setting `alignItems` to 'flex-start'
+      // Try setting `justifyContent` to `flex-end`.
+      // Try setting `flexDirection` to `row`.
+      &lt;View style={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'stretch',
+      }}&gt;
+        &lt;View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} /&gt;
+        &lt;View style={{height: 50, backgroundColor: 'skyblue'}} /&gt;
+        &lt;View style={{height: 100, backgroundColor: 'steelblue'}} /&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+</code></pre>
+</section>
+
+</section>
+				<section>
+
+<h2 id="gestion-du-défilement">Gestion du défilement</h2>
+
+<p><code>ScrollView</code> : utile pour un petit nombre (&lt; 30) de composants, tous rendus même si non affichés.</p>
+
+<pre><code class="language-jsx">import React, { Component } from 'react';
+import { ScrollView, Image, Text } from 'react-native';
+
+export default class IScrolledDown extends Component {
+  render() {
+      return (
+        &lt;ScrollView&gt;
+          &lt;Text style={{fontSize:48}}&gt;Scroll me plz&lt;/Text&gt;
+          &lt;Image source={{uri: &quot;https://facebook.github.io/react-native/img/favicon.png&quot;, width: 64, height: 64}} /&gt;
+          &lt;Image source={{uri: &quot;https://facebook.github.io/react-native/img/favicon.png&quot;, width: 64, height: 64}} /&gt;
+          &lt;Image source={{uri: &quot;https://facebook.github.io/react-native/img/favicon.png&quot;, width: 64, height: 64}} /&gt;
+          &lt;Text style={{fontSize:48}}&gt;If you like&lt;/Text&gt;
+          &lt;Image source={{uri: &quot;https://facebook.github.io/react-native/img/favicon.png&quot;, width: 64, height: 64}} /&gt;
+          &lt;Image source={{uri: &quot;https://facebook.github.io/react-native/img/favicon.png&quot;, width: 64, height: 64}} /&gt;
+          &lt;Image source={{uri: &quot;https://facebook.github.io/react-native/img/favicon.png&quot;, width: 64, height: 64}} /&gt;
+        &lt;/ScrollView&gt;
+    );
+  }
+}
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="listes">Listes</h2>
+
+<ul>
+<li>Composants rendus au moment de leur affichage</li>
+<li><code>FlatList</code> : pour des éléments de même structure</li>
+<li><code>SectionList</code> : pour des élements hiérarchisés</li>
+</ul>
+
+<pre><code class="language-jsx">import React, { Component } from 'react';
+import { SectionList, StyleSheet, Text, View } from 'react-native';
+
+export default class SectionListBasics extends Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;SectionList
+          sections={[
+            {title: 'D', data: ['Devin']},
+            {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
+          ]}
+          renderItem={({item}) =&gt; &lt;Text style={styles.item}&gt;{item}&lt;/Text&gt;}
+          renderSectionHeader={({section}) =&gt; &lt;Text style={styles.sectionHeader}&gt;{section.title}&lt;/Text&gt;}
+          keyExtractor={(item, index) =&gt; index}
+        /&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+   flex: 1,
+   paddingTop: 22
+  },
+  sectionHeader: {
+    paddingTop: 2,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 2,
+    fontSize: 14,
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(247,247,247,1.0)',
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+})
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="navigation-entre-vues">Navigation entre vues</h2>
+
+</section>
+				<section>
+
+<h2 id="react-navigation">React Navigation</h2>
+
+<p><img src="images/react_navigation_logo.png" alt="React Navigation logo" /></p>
+
+<ul>
+<li>Composant issu de la communauté</li>
+<li>Standard pour les applications multi-vues</li>
+</ul>
+
+<pre><code class="language-bash"># Adding react-navigation to the project
+npm install --save react-navigation
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="stacknavigator">StackNavigator</h2>
+
+<p>Gestion d&rsquo;une pile de vues</p>
+
+<pre><code class="language-js">const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Details: DetailsScreen
+  },
+  {
+    initialRouteName: &quot;Home&quot;
+  }
+);
+</code></pre>
+
+<ul>
+<li><a href="https://snack.expo.io/@react-navigation/our-first-navigate-v3">Démonstration simple</a></li>
+<li><a href="https://snack.expo.io/@react-navigation/full-screen-modal-v3">Démonstration plus complète</a></li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="tabnavigator">TabNavigator</h2>
+
+<p>Gestion d&rsquo;une barre d&rsquo;onglets en haut ou en bas de l&rsquo;application</p>
+
+<pre><code class="language-js">const TabNavigator = createBottomTabNavigator({
+  Home: HomeScreen,
+  Settings: SettingsScreen
+});
+</code></pre>
+
+<ul>
+<li><a href="https://snack.expo.io/@react-navigation/basic-tabs-v3">Démonstration simple</a></li>
+<li><a href="https://snack.expo.io/@react-navigation/stacks-in-tabs-v3">Démonstration plus complète</a></li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="drawernavigator">DrawerNavigator</h2>
+
+<p>Gestion d&rsquo;un menu &ldquo;hamburger&rdquo;</p>
+
+<pre><code class="language-js">const MyDrawerNavigator = createDrawerNavigator({
+  Home: {
+    screen: MyHomeScreen,
+  },
+  Notifications: {
+    screen: MyNotificationsScreen,
+  },
+});
+</code></pre>
+</section>
+				</div>
+	</div>
+	<div>
+		<a href="https://ensc.bordeaux-inp.fr">
+			<img src="https://www.bpesquet.fr/images/ENSC.jpg" style="position: absolute;
+						bottom: 10px;
+						left: 10px;" />
+		</a>
+	</div>
+
+	<script src="https://www.bpesquet.fr/reveal.js/lib/js/head.min.js"></script>
+	<script src="https://www.bpesquet.fr/reveal.js/js/reveal.js"></script>
+
+	<script>
+		
+		
+		
+		Reveal.initialize({
+			
+			history: false,
+			
+			slideNumber: true,
+			
+			transition: "convex",
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-MML-AM_HTMLorMML'  
+			},
+			dependencies: [
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/marked.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/markdown.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/notes\/notes.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/zoom-js\/zoom.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/highlight\/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/math\/math.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>

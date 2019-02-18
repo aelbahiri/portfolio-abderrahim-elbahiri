@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Articles on Baptiste Pesquet</title>
+    <link>https://www.bpesquet.fr/article/</link>
+    <description>Recent content in Articles on Baptiste Pesquet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 29 Nov 2018 23:26:45 +0100</lastBuildDate>
+    
+	<atom:link href="https://www.bpesquet.fr/article/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mon premier Kahoot</title>
+      <link>https://www.bpesquet.fr/article/mon-premier-kahoot/</link>
+      <pubDate>Thu, 29 Nov 2018 23:26:45 +0100</pubDate>
+      
+      <guid>https://www.bpesquet.fr/article/mon-premier-kahoot/</guid>
+      <description>La gamification de l&amp;rsquo;enseignement est dans l&amp;rsquo;air du temps, et il existe maintenant de nombreux outils permettant d&amp;rsquo;engager les apprenants de manière ludique et interactive. Cela faisait un petit moment que j&amp;rsquo;avais envie d&amp;rsquo;expérimenter un service de quiz interactif pendant un cours magistral. Le dernier CM de l&amp;rsquo;un de mes modules de cours m&amp;rsquo;en a récemment fourni l&amp;rsquo;occasion. Avant la séance, j&amp;rsquo;ai demandé aux étudiants de revoir l&amp;rsquo;ensemble des notions vues depuis le début du module, en leur annonçant un test de révision.</description>
+    </item>
+    
+    <item>
+      <title>PAISS 2018 : le debrief</title>
+      <link>https://www.bpesquet.fr/article/paiss-2018-debrief/</link>
+      <pubDate>Mon, 09 Jul 2018 08:48:56 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/article/paiss-2018-debrief/</guid>
+      <description>La session 2018 de la summer school de l&amp;rsquo;INRIA consacrée à l&amp;rsquo;IA, nommée PAISS, s&amp;rsquo;est déroulée à Grenoble du 2 au 6 juillet 2018. Voici un petit compte-rendu de ce qui s&amp;rsquo;y est dit et fait.
+Le P de PAISS correspond à l&amp;rsquo;institut PRAIRIE, le centre français d&amp;rsquo;excellence en IA dont la création a été annoncée lors du sommet AI for Humanity en mars 2018.
+Quelques chiffres L&amp;rsquo;école d&amp;rsquo;été 2018 a rassemblé environ 200 participants sélectionnés parmi plus de 700 candidatures.</description>
+    </item>
+    
+    <item>
+      <title>Artistes et spécifieurs, un jeu pour découvrir l&#39;agilité</title>
+      <link>https://www.bpesquet.fr/article/artistes-et-specifieurs/</link>
+      <pubDate>Thu, 24 May 2018 15:57:43 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/article/artistes-et-specifieurs/</guid>
+      <description>Dans le cadre du module de cours Gestion de projet, j&amp;rsquo;ai testé avec succès un atelier ludique et efficace pour s&amp;rsquo;initier aux valeurs de l&amp;rsquo;agilité : le jeu artistes et spécifieurs. Imaginé par Alistair Cockburn, l&amp;rsquo;un des signataires du manifeste agile, ce jeu est souvent utilisé par les coachs agiles en entreprise.
+Par rapport à d&amp;rsquo;autres ateliers similiaires comme lego4scrum, il a l&amp;rsquo;avantage de ne nécessiter presque aucun matériel. En 1h30 environ, il offre une première approche de certains principes agiles dans un cadre propice à la bonne humeur.</description>
+    </item>
+    
+    <item>
+      <title>Un nouveau site !</title>
+      <link>https://www.bpesquet.fr/article/un-nouveau-site/</link>
+      <pubDate>Thu, 24 May 2018 15:11:35 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/article/un-nouveau-site/</guid>
+      <description>Cela faisait un petit moment que l&amp;rsquo;idée d&amp;rsquo;enrichir mon site web me trottait en tête. Je voulais qu&amp;rsquo;il reflète mieux mes activités professionnelles et je souhaitais pouvoir :
+ Lister mes publications pédagogiques tout en les reliant aux cours que je dispense. Mettre à disposition de mes étudiants des compléments de cours en ligne. Commencer un blog pour décrire mes tâtonnements expérimentations pédagogiques. Ecrire en français avec la possiblité de traduire une partie du site en anglais.</description>
+    </item>
+    
+  </channel>
+</rss>

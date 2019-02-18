@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Développement mobile on Baptiste Pesquet</title>
+    <link>https://www.bpesquet.fr/slides/mobile/</link>
+    <description>Recent content in Développement mobile on Baptiste Pesquet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 04 Oct 2018 09:48:50 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.bpesquet.fr/slides/mobile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction à React Native</title>
+      <link>https://www.bpesquet.fr/slides/mobile/intro-react-native/</link>
+      <pubDate>Wed, 23 May 2018 23:34:24 +0200</pubDate>
+      
+      <guid>https://www.bpesquet.fr/slides/mobile/intro-react-native/</guid>
+      <description>Sommaire  L&amp;rsquo;écosystème mobile Le JavaScript moderne Premiers pas avec React Native  L&amp;rsquo;écosystème mobile  Développement natif Création d&amp;rsquo;applications en utilisant la technologie prévue par le concepteur de l&amp;rsquo;OS.
+ Android : Java IOS : Objective-C ou Swift  Ces technologies sont incompatibles. Avantages  Accès à l&amp;rsquo;intégralité des fonctionnalités matérielles et logicielles du terminal mobile. Performances optimales.  Inconvénient (majeur !) Nécessité de créer puis de faire évoluer une application pour chaque environnement.</description>
+    </item>
+    
+    <item>
+      <title>Création d&#39;applications mobiles avec React Native</title>
+      <link>https://www.bpesquet.fr/slides/mobile/app-react-native/</link>
+      <pubDate>Thu, 10 Jan 2019 22:45:23 +0100</pubDate>
+      
+      <guid>https://www.bpesquet.fr/slides/mobile/app-react-native/</guid>
+      <description>Sommaire  Les composants Navigation entre vues Gestion de l&amp;rsquo;état Interaction avec Firebase  Les composants La notion de composant Les composants sont les blocs de base d&amp;rsquo;une application React (Native).
+Ils permettent de créer une UI sous forme déclarative par assemblage de composants.
+Propriétés d&amp;rsquo;un composant  Caractéristiques définies au moment de la création. Modifiables uniquement par le composant parent.  import React, { Component } from &#39;react&#39;; import { Text, View } from &#39;react-native&#39;; class Greeting extends Component { render() { return &amp;lt;Text&amp;gt;Hello {this.</description>
+    </item>
+    
+  </channel>
+</rss>

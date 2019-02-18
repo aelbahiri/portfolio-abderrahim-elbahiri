@@ -1,0 +1,660 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Les réseaux de neurones artificiels</title>
+
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/css/theme/white.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/reveal.js/lib/css/zenburn.css">
+
+	
+	<link rel="stylesheet" href="https://www.bpesquet.fr/css/reveal.css">
+
+	
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/pdf.css' : 'https:\/\/www.bpesquet.fr\/reveal.js\/css\/print\/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+    <h1>Les réseaux de neurones artificiels</h1>
+
+    <p><a href="https://ensc.bordeaux-inp.fr">Ecole Nationale Supérieure de Cognitique</a></p>
+
+    <p><a href="https://www.bpesquet.fr">Baptiste Pesquet</a></p>
+
+    
+    
+    <a href="https://github.com/bpesquet/machine-learning-handbook"><img src="https://www.bpesquet.fr/images/GitHub-Mark-64px.png" alt="GitHub logo"></a>
+    
+    
+</section>
+
+			<section>
+
+<h2 id="sommaire">Sommaire</h2>
+
+<ul>
+<li>A la découverte des réseaux de neurones</li>
+<li>Premiers pas avec Keras</li>
+<li>Tuning d&rsquo;un réseau de neurones</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="a-la-découverte-des-réseaux-de-neurones">A la découverte des réseaux de neurones</h2>
+
+</section>
+				<section>
+
+<section><h2 id="les-origines">Les origines</h2>
+
+<ul>
+<li>1943 : premier modèle mathématique du neurone biologique (McCulloch et Pitts)</li>
+<li>1949 : règle de Hebb</li>
+<li>1958 : le perceptron (F. Rosenblatt)</li>
+<li>1969 : limites des perceptrons (M. Minsky)</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="l-inspiration-biologique">L&rsquo;inspiration biologique</h2>
+
+<p><img src="images/neuron.png" alt="Neuron" /></p>
+
+</section>
+				<section>
+
+<h2 id="le-neurone-formel-de-mcculloch-et-pitts">Le neurone formel de McCulloch et Pitts</h2>
+
+<p><img src="images/neuron_model.jpeg" alt="Formal neuron model" /></p>
+
+</section>
+				<section>
+
+<h2 id="la-règle-de-hebb">La règle de Hebb</h2>
+
+<p>Postulat sur l&rsquo;importance des synapses entre neurones pour l&rsquo;apprentissage.</p>
+
+<blockquote>
+<p>&ldquo;Quand un axone d&rsquo;une cellule A est assez proche pour exciter une cellule B de manière répétée et persistante, une croissance ou des changements métaboliques prennent place dans l&rsquo;une ou les deux cellules ce qui entraîne une augmentation de l&rsquo;efficacité de A comme cellule stimulant B.&rdquo;</p>
+</blockquote>
+
+</section>
+				<section>
+
+<h2 id="le-perceptron-de-franck-rosenblatt">Le perceptron de Franck Rosenblatt</h2>
+
+<p><img src="images/Perceptron.jpg" alt="The Perceptron" /></p>
+
+</section>
+				<section>
+
+<h2 id="algorithme-d-apprentissage-du-perceptron">Algorithme d&rsquo;apprentissage du perceptron</h2>
+
+<ol>
+<li>Initialiser aléatoirement les poids <code>$ \omega $</code> des connexions</li>
+<li>Pour chaque donnée de test <code>$ x^{(i)} $</code> :
+
+<ol>
+<li>Calculer la sortie du perceptron <code>$ y'^{(i)} $</code></li>
+<li>Ajuster les poids : <code>$ \omega_{next} = \omega + \eta (y^{(i)} - y'^{(i)}) x^{(i)} $</code></li>
+</ol></li>
+</ol>
+
+</section>
+				<section>
+
+<h2 id="multilayer-perceptron-mlp">MultiLayer Perceptron (MLP)</h2>
+
+<p><img src="images/neural_net2.jpeg" alt="MultiLayer Perceptron" /></p>
+
+</section>
+				<section>
+
+<h2 id="la-critique-de-minsky">La critique de Minsky</h2>
+
+<p>Un seul perceptron ne peut pas apprendre une fonction non séparable linéairement.</p>
+
+<p><img src="images/xor.png" alt="XOR problem" /></p>
+
+<p>Aucun algorithme d&rsquo;apprentissage ne fonctionne pour les couches cachées d&rsquo;un MLP.</p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="des-progrès-décisifs">Des progrès décisifs</h2>
+
+<ul>
+<li>1974 : technique de la rétropropagation (P. Werbos)</li>
+<li>1986 : apprentissage par rétropropagation (Rumelhart, Hinton, Williams)</li>
+<li>1989 : preuve mathématique de la capacité des réseaux de neurones à approximer toute fonction mesurable (Hornik, Stinchcombe, White)</li>
+<li>1989 : début des travaux sur les réseaux profonds à convolution (LeCun, Bengio)</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="l-avènement-du-deep-learning">L&rsquo;avènement du Deep Learning</h2>
+
+<ul>
+<li>2012 : AlexNet (Krizhevsky, Sutskever, Hinton) remporte la compétition ImageNet</li>
+<li>2016 : AlphaGo (DeepMind) bat le champion de Go Lee Sedol par 4 victoires à 1</li>
+<li>2017 : AlphaZero atteint en 24h un niveau surhumain au Go et aux échecs</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="apprentissage-supervisé">Apprentissage supervisé</h2>
+
+<ul>
+<li><strong>Régression</strong> : prix d&rsquo;un bien immobilier, prévision de températures, âge d&rsquo;une personne.</li>
+<li><strong>Classification binaire</strong> (0 ou 1) : chat/non chat, spam/non spam, tumeur maligne/bénigne.</li>
+<li><strong>Classification multiclasses</strong> : chat/chien/autre animal, reconnaissance de chiffres, catégorisation de tweets.</li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="anatomie-d-un-réseau">Anatomie d&rsquo;un réseau</h2>
+
+<p><img src="images/nn_weights.png" alt="A neural network" /></p>
+
+</section>
+				<section>
+
+<section><h2 id="algorithme-d-apprentissage">Algorithme d&rsquo;apprentissage</h2>
+
+<figure>
+    
+        <img src="images/nn_learning.jpg" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://www.manning.com/books/deep-learning-with-python"> 
+            Schéma extrait du livre Deep Learning with Python de F. Chollet
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<h2 id="entraînement-et-inférence">Entraînement et inférence</h2>
+
+<p><img src="images/training_inference1.png" alt="Training and inference" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="sortie-pour-un-neurone">Sortie pour un neurone</h2>
+
+<p><img src="images/neuron_output.png" alt="Neuron output" /></p>
+
+</section>
+				<section>
+
+<h2 id="fonctions-d-activation">Fonctions d&rsquo;activation</h2>
+
+<p>Nécessairement non linéraires</p>
+
+<p><img src="images/activation_functions.png" alt="Activation functions" /></p>
+
+</section>
+				<section>
+
+<h2 id="initialisation-des-poids-du-réseau">Initialisation des poids du réseau</h2>
+
+<p>Afin d&rsquo;optimiser l&rsquo;apprentissage, ils doivent :</p>
+
+<ul>
+<li>Etre non nuls</li>
+<li>Etre aléatoires</li>
+<li>Prendre des valeurs faibles</li>
+</ul>
+
+</section>
+				<section>
+
+<section><h2 id="vectorisation-des-calculs">Vectorisation des calculs</h2>
+
+<p><img src="images/nn_matrixes.png" alt="NN matrixes" /></p>
+
+</section>
+				<section>
+
+<h2 id="sortie-de-la-couche-1">Sortie de la couche 1</h2>
+
+<p><img src="images/output_layer1.png" alt="Layer 1 output" /></p>
+
+</section>
+				<section>
+
+<h2 id="sortie-de-la-couche-2">Sortie de la couche 2</h2>
+
+<p><img src="images/output_layer2.png" alt="Layer 2 output" /></p>
+
+</section>
+				<section>
+
+<h2 id="sortie-de-la-couche-3">Sortie de la couche 3</h2>
+
+<p><img src="images/output_layer3.png" alt="Layer 3 output" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="ajustement-des-poids-du-réseau">Ajustement des poids du réseau</h2>
+
+<p>Objectif : minimiser la fonction de perte (<em>loss</em>)</p>
+
+<p>Principe : <a href="https://www.bpesquet.fr/slides/ia/fondamentaux-ml/">descente de gradient</a></p>
+
+<p><code>$$\theta_{next} = \theta - \eta\nabla_{\theta}\mathcal{L}(\theta)$$</code></p>
+
+</section>
+				<section>
+
+<h2 id="la-rétropropagation">La rétropropagation</h2>
+
+<p>Objectif : calculer le gradient de la fonction de perte par rapport à tous ses paramètres (les poids du réseau).</p>
+
+<p>Principe : appliquer la règle des dérivations en chaîne ou <em>chain rule</em> pour calculer les dérivées partielles de la fonction de coût.</p>
+
+<p><a href="https://google-developers.appspot.com/machine-learning/crash-course/backprop-scroll/">Démonstration visuelle</a></p>
+
+</section>
+				<section>
+
+<h2 id="en-pratique">En pratique</h2>
+
+<p><a href="https://playground.tensorflow.org/#activation=tanh&amp;batchSize=10&amp;dataset=circle&amp;regDataset=reg-plane&amp;learningRate=0.03&amp;regularizationRate=0&amp;noise=0&amp;networkShape=4,2&amp;seed=0.36248&amp;showTestData=false&amp;discretize=false&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false&amp;showTestData_hide=true&amp;noise_hide=true&amp;discretize_hide=true&amp;regularization_hide=true&amp;batchSize_hide=true&amp;regularizationRate_hide=true&amp;percTrainData_hide=true">A Neural Network Playground (Simplified)</a></p>
+
+</section>
+				<section>
+
+<h2 id="premiers-pas-avec-keras">Premiers pas avec Keras</h2>
+
+</section>
+				<section>
+
+<h2 id="présentation-de-keras">Présentation de Keras</h2>
+
+<p>Librairie Python de création de réseaux de neurones conçue par <a href="https://twitter.com/fchollet">François Chollet</a>.</p>
+
+<p><img src="images/keras_logo.png" alt="Keras logo" /></p>
+
+<p>Fournit une API de haut niveau au-dessus de TensorFlow, Theano ou CNTK.</p>
+
+</section>
+				<section>
+
+<section><h2 id="exemple-création-d-un-mlp">Exemple : création d&rsquo;un MLP</h2>
+
+<p>Réseau souhaité :</p>
+
+<p><img src="images/neural_net2.jpeg" alt="A simple neural network" /></p>
+
+</section>
+				<section>
+
+<h2 id="définition-du-réseau">Définition du réseau</h2>
+
+<pre><code class="language-python"># Sequential defines a linear stack of layers
+from keras.models import Sequential
+# Dense defines a fully connected layer
+from keras.layers import Dense
+
+model = Sequential() # Create a new network
+# Add a 4-neurons layer using tanh as activation function
+# Input shape corresponds to the input layer (no of features)
+model.add(Dense(4, activation='tanh'), input_shape=(3,))
+# Add a 4-neurons layer using tanh
+# Input shape is infered from previous layer
+model.add(Dense(4, activation='tanh'))
+# Add a 1-neuron output layer using sigmoid
+model.add(Dense(1, activation='sigmoid'))
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="configuration-du-réseau">Configuration du réseau</h2>
+
+<pre><code class="language-python"># Configuration of the training process
+# optimizer: gradient descent optimization method
+# loss: loss function
+# metrics: list of metrics monitored during training and testing
+model.compile(optimizer='rmsprop',
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="apprentissage-et-évaluation">Apprentissage et évaluation</h2>
+
+<pre><code class="language-python"># Launch the training of the network on the data
+# epochs: number of epochs to train the model
+#  (An epoch is an iteration over the entire training dataset)
+# batch_size: number of samples used at each training iteration
+# The returned history object contains the monitored metrics
+history = model.fit(x_train, y_train, epochs=5, batch_size=64)
+
+# Compute the loss value &amp; metrics for the network on test data
+loss, acc = model.evaluate(x_test, y_test, verbose=0)
+</code></pre>
+</section>
+
+</section>
+				<section>
+
+<h2 id="en-pratique-1">En pratique</h2>
+
+<p><a href="http://nbviewer.jupyter.org/github/bpesquet/machine-learning-handbook/blob/master/deep-learning/Dense_Neural_Networks.ipynb">Dense Neural Networks with Keras</a></p>
+
+</section>
+				<section>
+
+<h2 id="le-hello-world-du-deep-learning-mnist-handwritten-digits">Le &ldquo;Hello World&rdquo; du Deep Learning : MNIST handwritten digits</h2>
+
+<p>Jeu de 70 000 chiffres manuscrits stockés sous forme d&rsquo;images 28x28 en niveau de gris (0 à 255).</p>
+
+<p><img src="images/MNIST_digits.png" alt="MNIST digits" /></p>
+
+</section>
+				<section>
+
+<h2 id="le-réseau-utilisé-pour-mnist">Le réseau utilisé pour MNIST</h2>
+
+
+<figure>
+    
+        <img src="images/mnist_nn.png" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="http://neuralnetworksanddeeplearning.com/chap1.html"> 
+            Schéma extrait du livre Neural Networks and Deep Learning de M. Nielsen
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+</section>
+				<section>
+
+<h2 id="création-du-réseau">Création du réseau</h2>
+
+<pre><code class="language-python"># Create a (784, 15, 10) model
+model = Sequential()
+
+# Use ReLU for hidden layer
+model.add(Dense(15, activation='relu', input_shape=(28 * 28,)))
+
+# Use softmax for output layer
+model.add(Dense(10, activation='softmax'))
+
+model.compile('rmsprop', 'categorical_crossentropy', metrics=['accuracy'])
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="la-fonction-softmax">La fonction Softmax</h2>
+
+<p><code>$$\sigma(z)_j = \frac{e^{z_j}}{\sum_{k=1}^K {e^{z_k}}}$$</code></p>
+
+<ul>
+<li><p>Représente une distribution de probabilités sur K catégories.</p></li>
+
+<li><p>Utilisée comme fonction d&rsquo;activation de la couche de sortie pour la classification multiclasses.</p></li>
+
+<li><p>Renvoie un vecteur de probabilités : chaque résultat attendu doit être fourni sous la forme d&rsquo;un vecteur binaire.</p></li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="encodage-one-hot">Encodage one-hot</h2>
+
+<p>Permet de transformer un vecteur de valeurs numériques discrètes en une matrice associant un vecteur binaire à chaque valeur.</p>
+
+<pre><code class="language-python">from keras.utils import to_categorical
+
+x = np.array([1, 2, 0, 2, 1])
+print(x.shape) # (5,)
+
+# One-hot encoding
+x = to_categorical(x)
+
+print(x.shape) # (5, 3): 5 elements and 3 possible values for each one
+print(x[0]) # [0. 1. 0.], corresponding to 1
+print(x[1]) # [0. 0. 1.], corresponding to 2
+print(x[2]) # [1. 0. 0.], corresponding to 0
+print(x[3]) # [0. 0. 1.], corresponding to 2
+print(x[4]) # [0. 1. 0.], corresponding to 1
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="chargement-et-préparation-des-données">Chargement et préparation des données</h2>
+
+<pre><code class="language-python"># Load the Keras MNIST digits dataset
+(train_images, train_labels), (test_images, test_labels) = mnist.load_data()
+
+# Reshape images data into a (number of samples, 28x28) matrix
+x_train = train_images.reshape((60000, 28 * 28))
+x_test = test_images.reshape((10000, 28 * 28))
+
+# Change pixel values from (0, 255) to (0, 1)
+x_train = x_train.astype('float32') / 255
+x_test = x_test.astype('float32') / 255
+
+# One-hot encoding of expected results
+y_train = to_categorical(train_labels)
+y_test = to_categorical(test_labels)
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="tuning-d-un-réseau-de-neurones">Tuning d&rsquo;un réseau de neurones</h2>
+
+</section>
+				<section>
+
+<h2 id="choix-des-hyperparamètres">Choix des hyperparamètres</h2>
+
+<ul>
+<li>Nombre de couches</li>
+<li>Nombre de neurones sur chaque couche cachée</li>
+<li>Fonctions d&rsquo;activation</li>
+<li><em>Learning rate</em></li>
+<li>Taille du mini-batch</li>
+<li>&hellip;</li>
+</ul>
+
+<p>Le processus de choix est <strong>itératif</strong>.</p>
+
+</section>
+				<section>
+
+<section><h2 id="algorithmes-d-optimisation-de-la-descente-de-gradient">Algorithmes d&rsquo;optimisation de la descente de gradient</h2>
+
+<figure>
+    
+        <img src="images/gradient_descent_evolution_map.jpeg" />
+    
+    
+    <figcaption>
+        <p>
+        
+        <a href="https://towardsdatascience.com/10-gradient-descent-optimisation-algorithms-86989510b5e9"> 
+            Bla
+        </a> 
+        </p> 
+    </figcaption>
+    
+</figure>
+
+</section>
+				<section>
+
+<h2 id="momentum">Momentum</h2>
+
+<p>Accélère la descente de gradient dans la direction du minimum.</p>
+
+<p>Analogie : une boule qui prend de la vitesse dans le sens de la pente</p>
+
+<p><img src="images/momentum.png" alt="Momentum" /></p>
+
+</section>
+				<section>
+
+<h2 id="autres-techniques">Autres techniques</h2>
+
+<ul>
+<li><strong>RMSprop</strong> (<em>Root Mean Square Prop</em>) : utilise les gradients précédents pour adapter le <em>learning rate</em>.</li>
+<li><strong>Adam</strong> (<em>Adaptive Moment Estimation</em>) : combine Momentum et RMSprop</li>
+</ul>
+
+<p><a href="http://ruder.io/optimizing-gradient-descent/">An overview of gradient descent optimization algorithms</a></p>
+</section>
+
+</section>
+				<section>
+
+<section><h2 id="optimisation-généralisation">Optimisation/généralisation</h2>
+
+<ul>
+<li><p>Lutter contre l&rsquo;underfitting :</p>
+
+<ul>
+<li>Augmenter la taille du réseau</li>
+<li>Entrainer le réseau plus longtemps</li>
+</ul></li>
+
+<li><p>Lutter contre l&rsquo;overtiffing :</p>
+
+<ul>
+<li>Utiliser plus de données pour l&rsquo;entrainement</li>
+<li>Limiter la taille du réseau</li>
+<li>Ajouter une régularisation</li>
+<li>Introduire le <em>dropout</em></li>
+</ul></li>
+</ul>
+
+</section>
+				<section>
+
+<h2 id="régularisation">Régularisation</h2>
+
+<p>Principe : forcer les poids à prendre de faibles valeurs en ajoutant à la fonction de perte un surcoût lié aux grandes valeurs des poids.</p>
+
+<ul>
+<li><strong>L1</strong> : <code>$ \frac{\lambda}{m} {\sum |{\theta_{ij}}|} $</code></li>
+<li><strong>L2</strong> : <code>$ \frac{\lambda}{m} {\sum {\theta_{ij}}^2} $</code></li>
+</ul>
+
+<p><code>$ \lambda $</code> est appelé <strong>taux de régularisation</strong>.</p>
+
+<pre><code class="language-python"># Add L2 regularization to a layer
+model.add(Dense(16, kernel_regularizer=regularizers.l2(0.001),
+                activation='relu', input_shape=(10000,)))
+</code></pre>
+
+</section>
+				<section>
+
+<h2 id="dropout">Dropout</h2>
+
+<p>Principe : supprimer aléatoirement certaines connexions (poids = 0) pendant l&rsquo;apprentissage.</p>
+
+<pre><code class="language-python"># Add a layer with 50% dropout during training
+model.add(Dense(16, activation='relu', input_shape=(10000,)))
+model.add(Dropout(0.5))
+</code></pre>
+
+<p><img src="images/dropout.png" alt="Dropout" /></p>
+</section>
+
+</section>
+				<section>
+
+<h2 id="en-pratique-2">En pratique</h2>
+
+<p><a href="https://playground.tensorflow.org">A Neural Network Playground (Complete)</a></p>
+
+<p><a href="http://nbviewer.jupyter.org/github/bpesquet/machine-learning-handbook/blob/master/deep-learning/Neural_Networks_Tuning.ipynb">Neural Networks Tuning</a></p>
+</section>
+				</div>
+	</div>
+	<div>
+		<a href="https://ensc.bordeaux-inp.fr">
+			<img src="https://www.bpesquet.fr/images/ENSC.jpg" style="position: absolute;
+						bottom: 10px;
+						left: 10px;" />
+		</a>
+	</div>
+
+	<script src="https://www.bpesquet.fr/reveal.js/lib/js/head.min.js"></script>
+	<script src="https://www.bpesquet.fr/reveal.js/js/reveal.js"></script>
+
+	<script>
+		
+		
+		
+		Reveal.initialize({
+			
+			history: false,
+			
+			slideNumber: true,
+			
+			transition: "convex",
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-MML-AM_HTMLorMML'  
+			},
+			dependencies: [
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/marked.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/markdown\/markdown.js' },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/notes\/notes.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/zoom-js\/zoom.js', async: true },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/highlight\/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'https:\/\/www.bpesquet.fr\/reveal.js\/plugin\/math\/math.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>
